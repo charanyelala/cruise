@@ -42,17 +42,17 @@ const Header = ({ currentPage = 'home' }) => {
     { 
       name: 'Cruises', 
       link: '/cruises',
-      dropdown: ['3 ISLANDS CRUISE', 'SUNSET CRUISE', 'PRIVATE CHARTER'] 
+      dropdown: ['3 ISLANDS CRUISE'] 
     },
     { 
       name: 'Destinations', 
       link: '/destinations',
-      dropdown: ['AEGINA ISLAND', 'POROS ISLAND', 'HYDRA ISLAND'] 
+      dropdown: ['The 3 Saronic Islands'] 
     },
     { 
       name: 'Fleet', 
       link: '/fleet',
-      dropdown: ['LUXURY YACHTS', 'SAILING BOATS', 'MOTOR BOATS'] 
+      dropdown: ['Our Yachts'] 
     },
     { name: 'About', link: '/about' },
     { name: 'Contact', link: '/contact' }
@@ -60,7 +60,7 @@ const Header = ({ currentPage = 'home' }) => {
 
   const contactInfo = [
     { icon: <Phone size={14} />, text: '+30 210 123 4567' },
-    { icon: <Mail size={14} />, text: 'info@cruiseinathens.gr' },
+    { icon: <Mail size={14} />, text: 'info@saronicdreamcruise.com' },
     { icon: <MapPin size={14} />, text: 'Marina Alimos, Athens' }
   ];
 
@@ -571,10 +571,10 @@ const Header = ({ currentPage = 'home' }) => {
               </div>
               <div>
                 <div className="logo-text">
-                  Cruise in Athens
+                  SARONIC DREAM CRUISE
                 </div>
                 <div className="logo-subtitle">
-                  LUXURY YACHTING
+                  PREMIUM YACHTING
                 </div>
               </div>
             </div>

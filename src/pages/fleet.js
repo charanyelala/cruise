@@ -554,18 +554,9 @@ const FleetPage = () => {
           <div style={styles.heroOverlay}></div>
           
           <div style={styles.heroContent}>
-            <p style={styles.heroSubtitle}>
-              <Crown size={20} />
-              <span>Luxury Fleet</span>
-              <Sparkles size={20} />
-            </p>
+           
             <h1 style={styles.heroTitle}>Our Premium Yacht Collection</h1>
-            <p style={styles.heroDescription}>
-              Discover our award-winning vessels, Angelique and Martika - two magnificent motor yachts 
-              designed to provide the ultimate cruising experience in the stunning Saronic Gulf. 
-              Each yacht combines luxury, comfort, and safety for unforgettable maritime adventures.
-            </p>
-            
+        
             <div style={styles.heroStats} className="hero-stats">
               <div 
                 style={styles.statItem}

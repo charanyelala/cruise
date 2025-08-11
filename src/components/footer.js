@@ -179,7 +179,7 @@ const Footer = () => {
                 <Anchor size={28} color="#001e3c" />
               </div>
               <div>
-                <div style={{ fontSize: '1.5rem', fontWeight: '700' }}>Cruise in Athens</div>
+                <div style={{ fontSize: '1.5rem', fontWeight: '700' }}>SARONIC DREAM CRUISE</div>
                 <div style={{ fontSize: '0.75rem', color: '#d4af37' }}>Luxury Yachting Adventures</div>
               </div>
             </div>
@@ -245,7 +245,7 @@ const Footer = () => {
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
                   <Mail size={18} color="#d4af37" />
-                  <span>info@cruiseinathens.gr</span>
+                  <span>info@saronicdreamcruise.com</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                   <Clock size={18} color="#d4af37" />
@@ -331,7 +331,7 @@ const Footer = () => {
           <div style={footerStyles.bottomContent}>
             <div>
               <p style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.9rem' }}>
-                © 2024 Cruise in Athens. All rights reserved. | 
+                © 2025 SARONIC DREAM CRUISE. All rights reserved. | 
                 <a style={{ color: '#d4af37', marginLeft: '0.5rem', marginRight: '0.5rem' }}>Privacy Policy</a> | 
                 <a style={{ color: '#d4af37', marginLeft: '0.5rem', marginRight: '0.5rem' }}>Terms of Service</a> | 
                 <a style={{ color: '#d4af37', marginLeft: '0.5rem' }}>Cancellation Policy</a>
@@ -354,58 +354,6 @@ const Footer = () => {
   );
 };
 
-// Main App Component
-const App = () => {
-  return (
-    <div style={{ minHeight: '100vh', background: '#f8fafb' }}>
-    
-      
-      {/* Main Content Area - Add your hero and other sections here */}
-      <div style={{ 
-        paddingTop: '120px', 
-        minHeight: '60vh',
-        background: 'linear-gradient(135deg, #003d7a 0%, #0066cc 100%)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        color: '#ffffff',
-        textAlign: 'center',
-        padding: '4rem 2rem'
-      }}>
-        <div>
-          <h1 style={{ 
-            fontSize: 'clamp(2rem, 5vw, 3.5rem)', 
-            marginBottom: '1rem',
-            background: 'linear-gradient(135deg, #ffffff, #e6f3ff)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-          }}>
-            Luxury Header & Footer Components
-          </h1>
-          <p style={{ fontSize: '1.25rem', opacity: 0.9, maxWidth: '600px', margin: '0 auto' }}>
-            Scroll to see the header transform and check out the comprehensive footer below
-          </p>
-          <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', justifyContent: 'center' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <Ship size={20} />
-              <span>Responsive Design</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <Waves size={20} />
-              <span>Smooth Animations</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <Compass size={20} />
-              <span>Best UX Practices</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <Footer />
-    </div>
-  );
-};
+
 
 export default Footer;

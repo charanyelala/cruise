@@ -59,7 +59,7 @@ const CruiseDetailsPage = () => {
       left: 0,
       width: '100%',
       height: '100%',
-      backgroundImage: 'url("https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80")',
+      backgroundImage: 'url("/images/ship.jpeg")',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundAttachment: 'fixed',
@@ -83,6 +83,7 @@ const CruiseDetailsPage = () => {
       padding: '0 1rem',
       maxWidth: '1000px',
       animation: 'fadeInUp 1.5s ease-out',
+      paddingTop: 'clamp(120px, 20vw, 160px)',
     },
     heroSubtitle: {
       fontSize: 'clamp(0.9rem, 2vw, 1.1rem)',
@@ -268,16 +269,6 @@ const CruiseDetailsPage = () => {
       marginBottom: '1.5rem',
       boxShadow: '0 15px 35px rgba(0, 102, 204, 0.3)',
     },
-    inclusionsSection: {
-      background: 'linear-gradient(135deg, #003d7a 0%, #0066cc 100%)',
-      color: '#ffffff',
-    },
-    prepareSection: {
-      background: 'linear-gradient(180deg, #f8fafb 0%, #ffffff 100%)',
-    },
-    faqSection: {
-      background: 'linear-gradient(180deg, #ffffff 0%, #f8fafb 100%)',
-    },
     faqItem: {
       background: 'rgba(255,255,255,0.9)',
       backdropFilter: 'blur(20px)',
@@ -404,6 +395,9 @@ const CruiseDetailsPage = () => {
       .hero-section {
         background-attachment: scroll !important;
       }
+      .hero-content {
+        padding-top: 160px !important;
+      }
     }
 
     @media (max-width: 480px) {
@@ -412,96 +406,111 @@ const CruiseDetailsPage = () => {
         padding: 1rem 2rem !important;
         font-size: 1rem !important;
       }
+      .hero-content {
+        padding-top: 140px !important;
+      }
+    }
+
+    @media (max-width: 375px) {
+      .hero-content {
+        padding-top: 120px !important;
+      }
     }
   `;
 
+  // Updated itinerary with exact content
   const itineraryItems = [
     {
       time: "8:45 AM",
       title: "Meeting Time",
       location: "Marina Zeas",
-      description: "Yacht's location with 10min safety briefing",
+      description: "yacht's location: 10min safety briefing",
       icon: <MapPin size={16} color="#1a1a1a" />,
       activities: ["Safety briefing", "Welcome aboard"]
     },
     {
-      time: "9:00 AM - 11:15 AM",
+      time: "9:00AM-11:15AM",
       title: "Saronic Gulf",
       location: "Open Waters",
-      description: "Sightseeing, Sailing, Breakfast & Welcome refreshments",
-      duration: "2 hours",
+      description: "Sightseeing, Sailing, Boat cruise, Breakfast, Coffee, Welcome refreshments",
+      duration: "2h",
       icon: <Ship size={16} color="#1a1a1a" />,
-      activities: ["Sightseeing", "Sailing", "Breakfast", "Coffee", "Welcome refreshments"]
+      activities: ["Sightseeing", "Sailing", "Boat cruise", "Breakfast", "Coffee", "Welcome refreshments"]
     },
     {
-      time: "11:15 AM - 12:45 PM",
+      time: "11:15am-12:45pm",
       title: "Agistri Island",
       location: "First Island Stop",
-      description: "Free time to explore beaches and lush greenery",
-      duration: "1h 30min",
+      description: "Shopping, Free time, Bike tour, Walk, Sightseeing, Photo stop, Break time",
+      duration: "1h30min",
       icon: <TreePine size={16} color="#1a1a1a" />,
-      activities: ["Shopping", "Free time", "Bike tour", "Walk", "Sightseeing", "Photo stop"]
+      activities: ["Shopping", "Free time", "Bike tour", "Walk", "Sightseeing", "Photo stop", "Break time"]
     },
     {
-      time: "1:00 PM - 1:40 PM",
+      time: "13:00PM-13:40PM",
       title: "Moni or Metopi",
       location: "Swimming Stop",
-      description: "Swimming in turquoise waters & lunch onboard",
+      description: "Swimming stop, Snorkeling (depending on the weather conditions)",
       duration: "45min",
       icon: <Waves size={16} color="#1a1a1a" />,
       activities: ["Swimming stop", "Snorkeling", "Lunch & drinks"]
     },
     {
-      time: "2:15 PM - 4:00 PM",
-      title: "Aegina Island",
+      time: "14:15PM-16:00PM",
+      title: "Aegina",
       location: "Historic Island",
-      description: "Famous for pistachio nuts and ancient ruins",
-      duration: "1h 30min",
+      description: "Horse riding, Photo stop, Break time, Shopping, Pistachio market, Free-time, Walk Sightseeing, Temple of Apollo",
+      duration: "1h30min",
       icon: <Mountain size={16} color="#1a1a1a" />,
-      activities: ["Horse riding", "Photo stop", "Shopping", "Pistachio market", "Temple of Apollo"]
+      activities: ["Horse riding", "Photo stop", "Break time", "Shopping", "Pistachio market", "Free-time", "Walk", "Sightseeing", "Temple of Apollo"]
     },
     {
-      time: "4:00 PM - 6:30 PM",
+      time: "16:00pm- 18:30PM",
       title: "Return Journey",
       location: "Saronic Gulf",
-      description: "Relaxing sail back with beautiful sunset views",
+      description: "Sailing in the Saronic gulf - returning journey",
       duration: "2h 30min",
       icon: <Sun size={16} color="#1a1a1a" />,
-      activities: ["Sailing", "Sunset views", "Relaxation"]
+      activities: ["Sailing", "Returning journey"]
     },
     {
-      time: "6:30 PM",
+      time: "18:30PM",
       title: "Arrival",
       location: "Marina Zeas",
-      description: "Safe return to meeting point",
+      description: "Arrival back at the meeting point",
       icon: <Anchor size={16} color="#1a1a1a" />,
-      activities: ["Disembarkation"]
+      activities: ["Arrival back at meeting point"]
     }
   ];
 
-  const inclusions = [
+  // Updated inclusions exactly as specified
+  const ticketIncludes = [
     { icon: <Coffee size={24} />, text: "Breakfast & refreshments (coffee, tea, orange juice)" },
-    { icon: <Utensils size={24} />, text: "Full Greek buffet lunch with vegan/vegetarian options" },
-    { icon: <Waves size={24} />, text: "Unlimited white wine, beers & refreshments" },
-    { icon: <Fish size={24} />, text: "Use of snorkeling equipment & pool noodles" },
+    { icon: <Utensils size={24} />, text: "Lunch onboard (vegan/vegetarian options lactose & gluten-free options) & unlimited white wine, beers & refreshments" }
+  ];
+
+  const whatElseIncluded = [
+    { icon: <Fish size={24} />, text: "Use of Snorkeling equipment" },
+    { icon: <Waves size={24} />, text: "Pool noodles" },
     { icon: <Users size={24} />, text: "Certified high experienced crew" },
     { icon: <Sun size={24} />, text: "Shaded spots on the yachts" },
-    { icon: <Globe size={24} />, text: "Free Wi-Fi onboard" }
+    { icon: <Globe size={24} />, text: "Free Wi-Fi" }
   ];
 
+  // Updated exclusions exactly as specified
   const exclusions = [
-    { icon: <X size={20} />, text: "Towels (please bring your own)" },
-    { icon: <X size={20} />, text: "Extra cost for island activities (horse riding, bike tour)" },
-    { icon: <X size={20} />, text: "Island shopping expenses" },
-    { icon: <X size={20} />, text: "Personal expenses" }
+    { icon: <X size={20} />, text: "Towels" },
+    { icon: <X size={20} />, text: "Extra cost for island activities (horse riding, bike tour, island shopping)" }
   ];
 
+  // Updated what to bring exactly as specified
   const whatToBring = [
     { icon: <Shirt size={24} />, item: "Towels", important: true },
-    { icon: <Sun size={24} />, item: "Hats & Sunscreen" },
+    { icon: <Sun size={24} />, item: "Hats" },
     { icon: <Waves size={24} />, item: "Swimwear" },
     { icon: <Navigation size={24} />, item: "Comfortable shoes" },
-    { icon: <CreditCard size={24} />, item: "Photo of IDs or Passports" }
+    { icon: <Sun size={24} />, item: "Sunscreen" },
+    { icon: <CreditCard size={24} />, item: "Photo of IDs or Passports (in case they are needed)" }
   ];
 
   const faqItems = [
@@ -531,39 +540,41 @@ const CruiseDetailsPage = () => {
     }
   ];
 
+  // Updated important info exactly as specified
   const importantInfo = [
     {
       icon: <Shield size={28} />,
       title: "Accessibility",
       points: [
-        "❌ Not accessible for wheelchair users",
-        "✅ Stroller accessible", 
-        "❌ Pets not allowed",
-        "✅ Life jackets provided for all ages"
-      ]
+        "The tour is not accessible for wheelchairs users",
+        "Stroller accessible"
+      ],
+      notAllowed: ["Pets"]
     },
     {
       icon: <CreditCard size={28} />,
-      title: "Pre-boarding Requirements",
+      title: "Pre-onboard Process",
       points: [
         "Name/Surname required",
-        "Birth Date required",
+        "Birth Date required", 
         "Passport/ID number required",
         "Nationality required"
       ],
-      note: "Required for port authority passenger lists and safety regulations"
+      note: "These details are needed for the passenger lists we are preparing for the port authority and it is part of the law of chartering a yacht. The process is according to identification & safety reasons."
     },
     {
       icon: <Car size={28} />,
-      title: "Transfer Service",
+      title: "Transfer Option Information",
       points: [
-        "Optional transfer: +15€/person",
-        "Pick-up from central Athens locations",
-        "Details sent 1 day prior around 8:00 PM",
-        "Pick-up times start from 7:30 AM",
-        "Be at pick-up point 5 minutes early"
+        "Transfer option has an extra cost of 15€/person",
+        "Including pick-up in the morning & drop-off in the afternoon",
+        "We have specific pick-up points in the centre of Athens",
+        "Pick-up details are sent to you 1 day prior to every cruise around 20:00pm",
+        "Pick-up times start from 7:30am, depending on the whole schedule",
+        "Please, be at the pick-up point 5min earlier than the indicated time",
+        "Type of vehicle: car, minivan, bus, taxi"
       ],
-      note: "We suggest having WhatsApp for direct communication"
+      note: "We suggest you having WhatsApp on your phones, so as to be able to contact you directly in case something happens with the pick-ups. You might be given a short (maximum 10min) walking distance pick-up point (from their initial selection)."
     }
   ];
 
@@ -679,20 +690,44 @@ const CruiseDetailsPage = () => {
           <div style={styles.gridLayout}>
             <div 
               className="fade-in"
-              id="inclusions-card"
+              id="ticket-includes-card"
               style={{
                 ...styles.card,
-                opacity: isVisible['inclusions-card'] ? 1 : 0,
-                transform: isVisible['inclusions-card'] ? 'translateY(0)' : 'translateY(50px)',
+                opacity: isVisible['ticket-includes-card'] ? 1 : 0,
+                transform: isVisible['ticket-includes-card'] ? 'translateY(0)' : 'translateY(50px)',
                 transition: 'all 1s ease',
               }}
             >
               <div style={styles.iconWrapper}>
                 <CheckCircle size={32} color="#ffffff" />
               </div>
-              <h3 style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.5rem)', color: '#003d7a', marginBottom: '1.5rem' }}>What's Included</h3>
+              <h3 style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.5rem)', color: '#003d7a', marginBottom: '1.5rem' }}>Ticket Includes</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                {inclusions.map((item, index) => (
+                {ticketIncludes.map((item, index) => (
+                  <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                    <div style={{ color: '#0066cc' }}>{item.icon}</div>
+                    <span style={{ color: '#4b5563', fontSize: 'clamp(0.9rem, 2vw, 1rem)' }}>{item.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div 
+              className="fade-in"
+              id="what-else-included-card"
+              style={{
+                ...styles.card,
+                opacity: isVisible['what-else-included-card'] ? 1 : 0,
+                transform: isVisible['what-else-included-card'] ? 'translateY(0)' : 'translateY(50px)',
+                transition: 'all 1s ease 0.2s',
+              }}
+            >
+              <div style={styles.iconWrapper}>
+                <Sparkles size={32} color="#ffffff" />
+              </div>
+              <h3 style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.5rem)', color: '#003d7a', marginBottom: '1.5rem' }}>What Else is Included</h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                {whatElseIncluded.map((item, index) => (
                   <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                     <div style={{ color: '#0066cc' }}>{item.icon}</div>
                     <span style={{ color: '#4b5563', fontSize: 'clamp(0.9rem, 2vw, 1rem)' }}>{item.text}</span>
@@ -708,13 +743,13 @@ const CruiseDetailsPage = () => {
                 ...styles.card,
                 opacity: isVisible['exclusions-card'] ? 1 : 0,
                 transform: isVisible['exclusions-card'] ? 'translateY(0)' : 'translateY(50px)',
-                transition: 'all 1s ease 0.2s',
+                transition: 'all 1s ease 0.4s',
               }}
             >
               <div style={styles.iconWrapper}>
                 <X size={32} color="#ffffff" />
               </div>
-              <h3 style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.5rem)', color: '#003d7a', marginBottom: '1.5rem' }}>Not Included</h3>
+              <h3 style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.5rem)', color: '#003d7a', marginBottom: '1.5rem' }}>What's Not Included</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {exclusions.map((item, index) => (
                   <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
@@ -743,7 +778,7 @@ const CruiseDetailsPage = () => {
               <div style={styles.iconWrapper}>
                 <ShoppingBag size={32} color="#ffffff" />
               </div>
-              <h3 style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.5rem)', color: '#003d7a', marginBottom: '1.5rem' }}>What to Bring</h3>
+              <h3 style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.5rem)', color: '#003d7a', marginBottom: '1.5rem' }}>What You Should Bring With</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {whatToBring.map((item, index) => (
                   <div key={index} style={{ 
@@ -760,51 +795,6 @@ const CruiseDetailsPage = () => {
                     {item.important && <span style={{ color: '#d4af37', fontSize: '0.8rem' }}>Essential</span>}
                   </div>
                 ))}
-              </div>
-            </div>
-
-            <div 
-              className="fade-in"
-              id="transfer-card"
-              style={{
-                ...styles.card,
-                opacity: isVisible['transfer-card'] ? 1 : 0,
-                transform: isVisible['transfer-card'] ? 'translateY(0)' : 'translateY(50px)',
-                transition: 'all 1s ease 0.2s',
-              }}
-            >
-              <div style={styles.iconWrapper}>
-                <Car size={32} color="#ffffff" />
-              </div>
-              <h3 style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.5rem)', color: '#003d7a', marginBottom: '1.5rem' }}>Transfer Option</h3>
-              <div style={{ marginBottom: '1.5rem' }}>
-                <div style={{ 
-                  background: 'linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05))',
-                  padding: '1rem',
-                  borderRadius: '12px',
-                  border: '1px solid rgba(212, 175, 55, 0.2)',
-                  marginBottom: '1rem',
-                  textAlign: 'center'
-                }}>
-                  <span style={{ color: '#d4af37', fontSize: 'clamp(1.1rem, 2.5vw, 1.3rem)', fontWeight: '700' }}>+15€/person</span>
-                </div>
-                <ul style={{ color: '#4b5563', lineHeight: '1.7', paddingLeft: '1rem', fontSize: 'clamp(0.9rem, 2vw, 1rem)' }}>
-                  <li>Pick-up in the morning & drop-off in the afternoon</li>
-                  <li>Specific pick-up points in central Athens</li>
-                  <li>Pick-up details sent 1 day prior around 8:00 PM</li>
-                  <li>Pick-up times start from 7:30 AM</li>
-                  <li>Be at pick-up point 5 minutes early</li>
-                </ul>
-              </div>
-              <div style={{ 
-                background: 'rgba(0, 102, 204, 0.1)', 
-                padding: '1rem', 
-                borderRadius: '12px',
-                border: '1px solid rgba(0, 102, 204, 0.2)'
-              }}>
-                <p style={{ color: '#0066cc', fontSize: 'clamp(0.8rem, 1.8vw, 0.9rem)', margin: 0 }}>
-                  💡 We suggest having WhatsApp for direct communication about pick-ups
-                </p>
               </div>
             </div>
           </div>
@@ -873,164 +863,160 @@ const CruiseDetailsPage = () => {
       <style>{keyframes}</style>
       <div style={styles.container}>
         {/* Hero Section */}
-    <section style={styles.heroSection} className="hero-section">
-  <style jsx>{`
-    .hero-content-with-margin {
-      padding-top: clamp(200px, 40vw, 280px);
-    }
+        <section style={styles.heroSection} className="hero-section">
+          <div style={styles.heroBackground}></div>
+          <div style={styles.heroOverlay}></div>
+          
+          <div style={styles.heroContent} className="hero-content">
+           
+            <h1 style={styles.heroTitle}>Daily 3 Islands Cruise</h1>
+            <p style={styles.heroDescription}>
+              Escape from Athens and visit the islands of Agistri and Aegina on this boat tour. 
+              Feel the wind in your hair as you sail and stop to swim off the Coast of Moni Island. 
+             
+            </p>
+            
+            <div style={styles.heroStats} className="hero-stats">
+              <div 
+                style={styles.statItem}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = 'translateY(-5px) scale(1.05)';
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.25)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
+                }}
+              >
+                <Clock size={24} />
+                <span>10 Hours</span>
+              </div>
+              <div 
+                style={styles.statItem}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = 'translateY(-5px) scale(1.05)';
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.25)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
+                }}
+              >
+                <Users size={24} />
+                <span>Max 49 People</span>
+              </div>
+              <div 
+                style={styles.statItem}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = 'translateY(-5px) scale(1.05)';
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.25)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
+                }}
+              >
+                <Calendar size={24} />
+                <span>All Ages</span>
+              </div>
+            </div>
 
-    @media (max-width: 768px) {
-      .hero-content-with-margin {
-        padding-top: 240px;
-      }
-    }
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={24} fill="#d4af37" color="#d4af37" />
+                ))}
+              </div>
+              <span style={{ fontSize: 'clamp(1rem, 2vw, 1.1rem)', fontWeight: '600' }}>4.9/5</span>
+              <span style={{ opacity: 0.8 }}>(500+ reviews)</span>
+            </div>
 
-    @media (max-width: 480px) {
-      .hero-content-with-margin {
-        padding-top: 200px;
-      }
-    }
-
-    @media (max-width: 375px) {
-      .hero-content-with-margin {
-        padding-top: 180px;
-      }
-    }
-  `}</style>
-  
-  <div style={styles.heroBackground}></div>
-  <div style={styles.heroOverlay}></div>
-  
-  <div style={{
-    ...styles.heroContent,
-    marginTop: 'clamp(100px, 20vw, 140px)'
-  }} className="hero-content-with-margin">
-    <p style={styles.heroSubtitle}>
-      <Ship size={20} />
-      <span>Premium Experience</span>
-      <Sparkles size={20} />
-    </p>
-    <h1 style={styles.heroTitle}>Daily 3 Islands Cruise</h1>
-    <p style={styles.heroDescription}>
-      All inclusive luxury cruise to Agistri, Moni/Metopi, and Aegina islands. 
-      Escape from Athens and discover the pristine beauty of the Saronic Gulf 
-      with breakfast, lunch, drinks, and unforgettable memories included.
-    </p>
-    
-    <div style={styles.heroStats} className="hero-stats">
-      <div 
-        style={styles.statItem}
-        onMouseEnter={e => {
-          e.currentTarget.style.transform = 'translateY(-5px) scale(1.05)';
-          e.currentTarget.style.background = 'rgba(255,255,255,0.25)';
-        }}
-        onMouseLeave={e => {
-          e.currentTarget.style.transform = 'translateY(0) scale(1)';
-          e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
-        }}
-      >
-        <Clock size={24} />
-        <span>10 Hours</span>
-      </div>
-      <div 
-        style={styles.statItem}
-        onMouseEnter={e => {
-          e.currentTarget.style.transform = 'translateY(-5px) scale(1.05)';
-          e.currentTarget.style.background = 'rgba(255,255,255,0.25)';
-        }}
-        onMouseLeave={e => {
-          e.currentTarget.style.transform = 'translateY(0) scale(1)';
-          e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
-        }}
-      >
-        <Users size={24} />
-        <span>Max 49 People</span>
-      </div>
-      <div 
-        style={styles.statItem}
-        onMouseEnter={e => {
-          e.currentTarget.style.transform = 'translateY(-5px) scale(1.05)';
-          e.currentTarget.style.background = 'rgba(255,255,255,0.25)';
-        }}
-        onMouseLeave={e => {
-          e.currentTarget.style.transform = 'translateY(0) scale(1)';
-          e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
-        }}
-      >
-        <Calendar size={24} />
-        <span>All Ages</span>
-      </div>
-    </div>
-
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-        {[...Array(5)].map((_, i) => (
-          <Star key={i} size={24} fill="#d4af37" color="#d4af37" />
-        ))}
-      </div>
-      <span style={{ fontSize: 'clamp(1rem, 2vw, 1.1rem)', fontWeight: '600' }}>4.9/5</span>
-      <span style={{ opacity: 0.8 }}>(500+ reviews)</span>
-    </div>
-
-    <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-      <div style={{
-        background: 'rgba(255,255,255,0.95)',
-        backdropFilter: 'blur(30px)',
-        borderRadius: '28px',
-        padding: '2rem',
-        boxShadow: '0 25px 80px rgba(0, 0, 0, 0.3)',
-        border: '1px solid rgba(255,255,255,0.3)',
-        textAlign: 'center',
-        minWidth: '280px',
-      }}>
-        <div style={{ fontSize: 'clamp(2rem, 4vw, 2.5rem)', fontWeight: '800', color: '#003d7a', marginBottom: '0.5rem' }}>
-          From €150
-        </div>
-        <div style={{ color: '#6b7280', marginBottom: '1.5rem' }}>per person</div>
-        
-        <button 
-          style={{
-            ...styles.ctaButton,
-            width: '100%',
-            fontSize: 'clamp(1rem, 2vw, 1.2rem)',
-            padding: 'clamp(1rem, 2vw, 1.2rem) clamp(2rem, 4vw, 3rem)',
-          }}
-          className="booking-button"
-          onClick={() => setShowBookingModal(true)}
-          onMouseEnter={e => {
-            e.currentTarget.style.transform = 'translateY(-3px) scale(1.02)';
-            e.currentTarget.style.boxShadow = '0 20px 60px rgba(212, 175, 55, 0.6)';
-          }}
-          onMouseLeave={e => {
-            e.currentTarget.style.transform = 'translateY(0) scale(1)';
-            e.currentTarget.style.boxShadow = '0 10px 30px rgba(212, 175, 55, 0.4)';
-          }}
-        >
-          <Sparkles size={24} />
-          Book Your Adventure
-          <ArrowRight size={24} />
-        </button>
-        
-        <div style={{ marginTop: '1.5rem', padding: '1rem', background: 'rgba(0, 102, 204, 0.1)', borderRadius: '16px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem', justifyContent: 'center' }}>
-            <CheckCircle size={18} color="#0066cc" />
-            <span style={{ color: '#0066cc', fontSize: 'clamp(0.8rem, 1.8vw, 0.95rem)', fontWeight: '600' }}>Free cancellation up to 24h</span>
+            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <div style={{
+                background: 'rgba(255,255,255,0.95)',
+                backdropFilter: 'blur(30px)',
+                borderRadius: '28px',
+                padding: '2rem',
+                boxShadow: '0 25px 80px rgba(0, 0, 0, 0.3)',
+                border: '1px solid rgba(255,255,255,0.3)',
+                textAlign: 'center',
+                minWidth: '280px',
+              }}>
+                <div style={{ fontSize: 'clamp(2rem, 4vw, 2.5rem)', fontWeight: '800', color: '#003d7a', marginBottom: '0.5rem' }}>
+                  From €150
+                </div>
+                <div style={{ color: '#6b7280', marginBottom: '1.5rem' }}>per person</div>
+                
+                <button 
+                  style={{
+                    ...styles.ctaButton,
+                    width: '100%',
+                    fontSize: 'clamp(1rem, 2vw, 1.2rem)',
+                    padding: 'clamp(1rem, 2vw, 1.2rem) clamp(2rem, 4vw, 3rem)',
+                  }}
+                  className="booking-button"
+                  onClick={() => setShowBookingModal(true)}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.transform = 'translateY(-3px) scale(1.02)';
+                    e.currentTarget.style.boxShadow = '0 20px 60px rgba(212, 175, 55, 0.6)';
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                    e.currentTarget.style.boxShadow = '0 10px 30px rgba(212, 175, 55, 0.4)';
+                  }}
+                >
+                  <Sparkles size={24} />
+                  Book Your Adventure
+                  <ArrowRight size={24} />
+                </button>
+                
+                <div style={{ marginTop: '1.5rem', padding: '1rem', background: 'rgba(0, 102, 204, 0.1)', borderRadius: '16px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem', justifyContent: 'center' }}>
+                    <CheckCircle size={18} color="#0066cc" />
+                    <span style={{ color: '#0066cc', fontSize: 'clamp(0.8rem, 1.8vw, 0.95rem)', fontWeight: '600' }}>Free cancellation up to 24h</span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center' }}>
+                    <CheckCircle size={18} color="#0066cc" />
+                    <span style={{ color: '#0066cc', fontSize: 'clamp(0.8rem, 1.8vw, 0.95rem)', fontWeight: '600' }}>Instant confirmation</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center' }}>
-            <CheckCircle size={18} color="#0066cc" />
-            <span style={{ color: '#0066cc', fontSize: 'clamp(0.8rem, 1.8vw, 0.95rem)', fontWeight: '600' }}>Instant confirmation</span>
+        </section>
+
+        {/* Main Description Section */}
+        <section style={{ ...styles.section, background: 'linear-gradient(180deg, #ffffff 0%, #f8fafb 100%)' }}>
+          <FloatingElements count={15} color="rgba(212, 175, 55, 0.1)" />
+          
+          <h2 style={styles.sectionTitle}>Your Greek Island Adventure</h2>
+          <div style={{ maxWidth: '900px', margin: '0 auto', fontSize: 'clamp(1rem, 2vw, 1.1rem)', lineHeight: '1.8', color: '#4b5563' }}>
+            <p style={{ marginBottom: '1.5rem' }}>
+              Step aboard a wooden sailing yacht and be greeted with welcome coffee, juice, water, tea, salty and sweet bites. 
+              Set sail to the island of Agistri where you can explore the island's beaches and lush greenery with an hour of free time. 
+              Have the option to rent a bike to see more in less time.
+            </p>
+            <p style={{ marginBottom: '1.5rem' }}>
+              Anchor in Moni or Metopi where you can go refreshing swim in turquoise waters or make use of the provided snorkeling gear. 
+              Work up an appetite and dig into a full Greek buffet with fresh ingredients, and local delicacies prepared by our professional chef. 
+              Eat while soaking in the island atmosphere.
+            </p>
+            <p style={{ marginBottom: '1.5rem' }}>
+              Continue your journey to the island of Aegina which is famous for its pistachio nuts and ancient ruins. 
+              Spend some free time exploring the picturesque town of Aegina or take a horse-drawn carriage ride around the island.
+            </p>
+            <p>
+              As the sun begins to set, embark on the return journey back to the port. 
+              Relax on deck, enjoy the sea breeze, and take in the beautiful views of the Saronic Gulf.
+            </p>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+        </section>
 
         {/* Itinerary Section */}
         <section style={{ ...styles.section, ...styles.itinerarySection }}>
           <FloatingElements count={15} color="rgba(212, 175, 55, 0.1)" />
           
-          <h2 style={styles.sectionTitle}>Cruise Details</h2>
+          <h2 style={styles.sectionTitle}>Itinerary & Schedule</h2>
           <p style={styles.sectionSubtitle}>
             Your complete journey through the beautiful Saronic Gulf
           </p>
@@ -1107,11 +1093,34 @@ const CruiseDetailsPage = () => {
                 <h3 style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.5rem)', color: '#003d7a', marginBottom: '1.5rem' }}>
                   {info.title}
                 </h3>
-                <ul style={{ color: '#4b5563', lineHeight: '1.7', paddingLeft: '1rem', fontSize: 'clamp(0.9rem, 2vw, 1rem)' }}>
-                  {info.points.map((point, i) => (
-                    <li key={i} style={{ marginBottom: '0.5rem' }}>{point}</li>
-                  ))}
-                </ul>
+                
+                {info.title === "Accessibility" ? (
+                  <>
+                    <div style={{ marginBottom: '1rem' }}>
+                      <h4 style={{ color: '#0066cc', marginBottom: '0.5rem', fontSize: '1rem' }}>Accessibility:</h4>
+                      <ul style={{ color: '#4b5563', lineHeight: '1.7', paddingLeft: '1rem', fontSize: 'clamp(0.9rem, 2vw, 1rem)' }}>
+                        {info.points.map((point, i) => (
+                          <li key={i} style={{ marginBottom: '0.5rem' }}>• {point}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 style={{ color: '#ef4444', marginBottom: '0.5rem', fontSize: '1rem' }}>Not allowed:</h4>
+                      <ul style={{ color: '#4b5563', lineHeight: '1.7', paddingLeft: '1rem', fontSize: 'clamp(0.9rem, 2vw, 1rem)' }}>
+                        {info.notAllowed.map((item, i) => (
+                          <li key={i} style={{ marginBottom: '0.5rem' }}>• {item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </>
+                ) : (
+                  <ul style={{ color: '#4b5563', lineHeight: '1.7', paddingLeft: '1rem', fontSize: 'clamp(0.9rem, 2vw, 1rem)', marginBottom: '1rem' }}>
+                    {info.points.map((point, i) => (
+                      <li key={i} style={{ marginBottom: '0.5rem' }}>• {point}</li>
+                    ))}
+                  </ul>
+                )}
+                
                 {info.note && (
                   <div style={{ 
                     background: 'rgba(212, 175, 55, 0.1)', 
@@ -1196,7 +1205,7 @@ const CruiseDetailsPage = () => {
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <Mail size={20} />
-              <span>info@CruiseInAthens.com</span>
+              <span>info@saronicdreamcruise.com</span>
             </div>
           </div>
         </section>
@@ -1237,7 +1246,7 @@ const CruiseDetailsPage = () => {
                     <Phone size={20} /> Call +30 6984922197
                   </a>
                   <a 
-                    href="mailto:info@CruiseInAthens.com"
+                    href="mailto:info@saronicdreamcruise.com"
                     style={{
                       ...styles.ctaButton,
                       width: '100%',

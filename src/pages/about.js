@@ -881,7 +881,7 @@ const AboutPage = () => {
           </div>
         </section> */}
 
-        {/* Timeline Section */}
+        {/* Timeline Section
         <section style={{ ...styles.section, ...styles.timelineSection }}>
           <h2 style={styles.sectionTitle}>Our Journey</h2>
           <p style={styles.sectionSubtitle}>
@@ -933,9 +933,9 @@ const AboutPage = () => {
               </div>
             ))}
           </div>
-        </section>
+        </section>  */}
 
-        {/* Awards Section */}
+        {/* Awards Section 
         <section style={{ ...styles.section, ...styles.awardsSection }}>
           <FloatingElements count={8} color="rgba(212, 175, 55, 0.1)" />
           
@@ -997,7 +997,7 @@ const AboutPage = () => {
               </div>
             ))}
           </div>
-        </section>
+        </section> */}
 
         {/* CTA Section */}
         <section style={{ ...styles.section, ...styles.ctaSection }}>
