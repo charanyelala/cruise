@@ -5,6 +5,7 @@ import {
   Play, X, ChevronLeft, ChevronRight, 
   Camera, Heart, Globe, Sparkles, Check
 } from 'lucide-react';
+import { useNavigate } from "react-router-dom";
 
 const CruiseHomepage = () => {
   const [isVisible, setIsVisible] = useState({});
@@ -14,6 +15,7 @@ const CruiseHomepage = () => {
   const [videoModalOpen, setVideoModalOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+   const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -698,19 +700,24 @@ const CruiseHomepage = () => {
               experience the timeless beauty of the Saronic Gulf and its serene waters.
             </p>
             <div style={styles.heroCTA}>
-              <button 
-                style={styles.primaryButton}
-                onMouseEnter={e => {
-                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.08) rotateZ(2deg)';
-                  e.currentTarget.style.boxShadow = '0 20px 50px rgba(212, 175, 55, 0.6)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.transform = 'translateY(0) scale(1) rotateZ(0deg)';
-                  e.currentTarget.style.boxShadow = '0 10px 30px rgba(212, 175, 55, 0.4)';
-                }}
-              >
-                Explore Cruises <ArrowRight size={20} />
-              </button>
+          <button
+      style={styles.primaryButton}
+      onClick={() => navigate("/cruises")}
+      onMouseEnter={e => {
+        e.currentTarget.style.transform =
+          "translateY(-8px) scale(1.08) rotateZ(2deg)";
+        e.currentTarget.style.boxShadow =
+          "0 20px 50px rgba(212, 175, 55, 0.6)";
+      }}
+      onMouseLeave={e => {
+        e.currentTarget.style.transform =
+          "translateY(0) scale(1) rotateZ(0deg)";
+        e.currentTarget.style.boxShadow =
+          "0 10px 30px rgba(212, 175, 55, 0.4)";
+      }}
+    >
+      Explore Cruises <ArrowRight size={20} />
+    </button>
               <button 
                 style={styles.secondaryButton}
                 onClick={() => setVideoModalOpen(true)}
