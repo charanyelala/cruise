@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Anchor, Users, Award, Shield, Globe, Heart, Star,
-  Ship, Waves, Compass, MapPin, Phone, Mail, 
-  ChefHat, Languages, ArrowRight, CheckCircle,
-  Camera, Calendar, Clock, Sparkles, Trophy,
-  Navigation, Sunset, Mountain, Fish, Utensils
+  Anchor, Award, Shield, Users, Heart, Globe, Compass, Ship,
+  Star, Clock, MapPin, Phone, Mail, ChevronRight, ArrowRight,
+  Camera, Waves, Calendar, Trophy, CheckCircle, Play, X,
+  Sparkles, Target, Eye, Flag, Zap, ThumbsUp, Coffee
 } from 'lucide-react';
 
-const AboutUsPage = () => {
-  const [isVisible, setIsVisible] = useState({});
+const AboutPage = () => {
   const [scrollY, setScrollY] = useState(0);
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [isVisible, setIsVisible] = useState({});
+  const [activeTeamMember, setActiveTeamMember] = useState(null);
+  const [videoModalOpen, setVideoModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,986 +35,1192 @@ const AboutUsPage = () => {
       minHeight: '100vh',
       backgroundColor: '#f8fafb',
       fontFamily: "'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif",
-      paddingTop: '120px',
-    },
-    heroSection: {
-      background: 'linear-gradient(135deg, #003d7a 0%, #0066cc 100%)',
-      color: '#ffffff',
-      padding: '6rem 2rem',
       position: 'relative',
       overflow: 'hidden',
-      textAlign: 'center',
+    },
+    heroSection: {
+      position: 'relative',
+      height: '100vh',
+      width: '100%',
+      overflow: 'hidden',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    heroBackground: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      backgroundImage: 'url("/images/ship2.jpeg")',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundAttachment: 'fixed',
+      transform: `translateY(${scrollY * 0.5}px)`,
+      transition: 'transform 0.1s ease-out',
+    },
+    heroOverlay: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      background: 'linear-gradient(180deg, rgba(0, 30, 60, 0.4) 0%, rgba(0, 61, 122, 0.6) 50%, rgba(0, 30, 60, 0.8) 100%)',
+      zIndex: 2,
     },
     heroContent: {
-      maxWidth: '1200px',
-      margin: '0 auto',
       position: 'relative',
-      zIndex: 2,
+      zIndex: 3,
+      textAlign: 'center',
+      color: '#ffffff',
+      padding: '0 1rem',
+      maxWidth: '1000px',
+      animation: 'fadeInUp 1.5s ease-out',
+    },
+    heroSubtitle: {
+      fontSize: 'clamp(0.9rem, 2vw, 1.1rem)',
+      letterSpacing: '3px',
+      textTransform: 'uppercase',
+      marginBottom: '1rem',
+      color: '#d4af37',
+      fontWeight: '300',
+      animation: 'fadeIn 2s ease-out 0.3s both',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: '1rem',
+      flexWrap: 'wrap',
     },
     heroTitle: {
       fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
       fontWeight: '700',
+      lineHeight: '1.1',
       marginBottom: '1.5rem',
+      letterSpacing: '-2px',
       background: 'linear-gradient(135deg, #ffffff 0%, #e6f3ff 100%)',
       WebkitBackgroundClip: 'text',
       WebkitTextFillColor: 'transparent',
       backgroundClip: 'text',
-      animation: 'fadeInUp 1s ease-out',
+      animation: 'fadeInUp 1.5s ease-out 0.5s both',
       textShadow: '0 2px 20px rgba(0,0,0,0.1)',
     },
-    heroSubtitle: {
-      fontSize: '1.3rem',
+    heroDescription: {
+      fontSize: 'clamp(1rem, 2.5vw, 1.3rem)',
       lineHeight: '1.8',
-      marginBottom: '2rem',
-      color: 'rgba(255,255,255,0.9)',
-      animation: 'fadeInUp 1s ease-out 0.2s both',
-    },
-    heroStats: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-      gap: '2rem',
-      marginTop: '3rem',
-      animation: 'fadeInUp 1s ease-out 0.4s both',
-    },
-    statItem: {
-      textAlign: 'center',
-      padding: '1rem',
-      background: 'rgba(255,255,255,0.1)',
-      backdropFilter: 'blur(10px)',
-      borderRadius: '16px',
-      border: '1px solid rgba(255,255,255,0.2)',
-      transition: 'all 0.3s ease',
+      marginBottom: '2.5rem',
+      color: 'rgba(255,255,255,0.95)',
+      maxWidth: '800px',
+      margin: '0 auto 2.5rem',
+      animation: 'fadeInUp 1.5s ease-out 0.7s both',
+      fontWeight: '300',
     },
     section: {
-      padding: '6rem 2rem',
+      padding: 'clamp(4rem, 8vw, 6rem) clamp(1rem, 4vw, 2rem)',
       position: 'relative',
       overflow: 'hidden',
     },
-    sectionAlt: {
-      background: 'linear-gradient(180deg, #ffffff 0%, #f8fafb 100%)',
-    },
-    container: {
-      maxWidth: '1400px',
-      margin: '0 auto',
-    },
     sectionTitle: {
-      fontSize: 'clamp(2.5rem, 4vw, 4rem)',
+      fontSize: 'clamp(2rem, 5vw, 3.5rem)',
       fontWeight: '700',
       textAlign: 'center',
       marginBottom: '1rem',
       color: '#003d7a',
+      letterSpacing: '-1px',
       background: 'linear-gradient(135deg, #003d7a 0%, #0066cc 100%)',
       WebkitBackgroundClip: 'text',
       WebkitTextFillColor: 'transparent',
       backgroundClip: 'text',
     },
     sectionSubtitle: {
-      fontSize: '1.3rem',
+      fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
       textAlign: 'center',
       color: '#6b7280',
-      marginBottom: '4rem',
-      maxWidth: '800px',
-      margin: '0 auto 4rem',
+      marginBottom: 'clamp(2rem, 4vw, 3rem)',
+      maxWidth: '700px',
+      margin: '0 auto clamp(2rem, 4vw, 3rem)',
       lineHeight: '1.7',
     },
-    twoColumnGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(500px, 1fr))',
-      gap: '4rem',
-      alignItems: 'center',
-      marginBottom: '4rem',
+    storySection: {
+      background: 'linear-gradient(180deg, #ffffff 0%, #f8fafb 100%)',
     },
-    contentCard: {
+    storyGrid: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+      gap: 'clamp(2rem, 4vw, 3rem)',
+      maxWidth: '1400px',
+      margin: '0 auto',
+      alignItems: 'center',
+    },
+    storyContent: {
       background: 'rgba(255,255,255,0.9)',
       backdropFilter: 'blur(20px)',
-      borderRadius: '32px',
-      padding: '3rem',
+      borderRadius: '24px',
+      padding: 'clamp(2rem, 4vw, 3rem)',
       boxShadow: '0 20px 60px rgba(0, 61, 122, 0.1)',
       border: '1px solid rgba(0, 102, 204, 0.1)',
-      transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
-      transformStyle: 'preserve-3d',
+      transition: 'all 0.6s ease',
     },
-    imageCard: {
-      borderRadius: '32px',
-      overflow: 'hidden',
-      boxShadow: '0 20px 60px rgba(0, 61, 122, 0.15)',
-      transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
-      transform: `perspective(1000px) rotateY(${scrollY * 0.01}deg)`,
+    storyImage: {
+      width: '100%',
+      height: 'clamp(300px, 40vw, 500px)',
+      objectFit: 'cover',
+      borderRadius: '20px',
+      boxShadow: '0 15px 40px rgba(0, 61, 122, 0.15)',
+      transition: 'transform 0.6s ease',
+    },
+    valuesSection: {
+      background: 'linear-gradient(135deg, #003d7a 0%, #0066cc 100%)',
+      color: '#ffffff',
+    },
+    valuesGrid: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+      gap: 'clamp(1.5rem, 3vw, 2rem)',
+      maxWidth: '1200px',
+      margin: '0 auto',
+    },
+    valueCard: {
+      background: 'rgba(255,255,255,0.1)',
+      backdropFilter: 'blur(20px)',
+      borderRadius: '24px',
+      padding: 'clamp(2rem, 4vw, 2.5rem)',
+      border: '1px solid rgba(255,255,255,0.2)',
+      transition: 'all 0.6s ease',
+      textAlign: 'center',
+      cursor: 'pointer',
+    },
+    valueIcon: {
+      width: 'clamp(60px, 8vw, 80px)',
+      height: 'clamp(60px, 8vw, 80px)',
+      borderRadius: '50%',
+      background: 'linear-gradient(135deg, #d4af37, #f4d03f)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      margin: '0 auto 1.5rem',
+      boxShadow: '0 15px 35px rgba(212, 175, 55, 0.3)',
+    },
+    teamSection: {
+      background: 'linear-gradient(180deg, #f8fafb 0%, #ffffff 100%)',
     },
     teamGrid: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-      gap: '2.5rem',
-      marginTop: '4rem',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+      gap: 'clamp(2rem, 4vw, 2.5rem)',
+      maxWidth: '1300px',
+      margin: '0 auto',
     },
     teamCard: {
       background: 'rgba(255,255,255,0.9)',
       backdropFilter: 'blur(20px)',
-      borderRadius: '32px',
-      padding: '3rem',
-      textAlign: 'center',
-      boxShadow: '0 20px 60px rgba(0, 61, 122, 0.1)',
-      border: '1px solid rgba(0, 102, 204, 0.1)',
-      transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
-      transformStyle: 'preserve-3d',
-    },
-    iconWrapper: {
-      width: '100px',
-      height: '100px',
-      borderRadius: '50%',
-      background: 'linear-gradient(135deg, #0066cc, #003d7a)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      margin: '0 auto 2rem',
-      boxShadow: '0 15px 35px rgba(0, 102, 204, 0.3)',
-      position: 'relative',
-    },
-    servicesGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
-      gap: '2rem',
-      marginTop: '4rem',
-    },
-    serviceCard: {
-      background: 'rgba(255,255,255,0.9)',
-      backdropFilter: 'blur(20px)',
-      borderRadius: '24px',
-      padding: '2.5rem',
-      boxShadow: '0 15px 40px rgba(0, 61, 122, 0.1)',
-      border: '1px solid rgba(0, 102, 204, 0.1)',
-      transition: 'all 0.4s ease',
-    },
-    destinationGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-      gap: '2rem',
-      marginTop: '4rem',
-    },
-    destinationCard: {
-      background: 'rgba(255,255,255,0.9)',
-      backdropFilter: 'blur(20px)',
       borderRadius: '24px',
       overflow: 'hidden',
-      boxShadow: '0 15px 40px rgba(0, 61, 122, 0.1)',
+      boxShadow: '0 20px 60px rgba(0, 61, 122, 0.1)',
+      transition: 'all 0.6s ease',
+      cursor: 'pointer',
       border: '1px solid rgba(0, 102, 204, 0.1)',
-      transition: 'all 0.4s ease',
     },
-    featureList: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-      gap: '1.5rem',
-      marginTop: '2rem',
+    teamImage: {
+      width: '100%',
+      height: 'clamp(250px, 30vw, 320px)',
+      objectFit: 'cover',
+      transition: 'transform 0.6s ease',
     },
-    featureItem: {
+    teamContent: {
+      padding: 'clamp(1.5rem, 3vw, 2rem)',
+    },
+    timelineSection: {
+      background: 'linear-gradient(180deg, #ffffff 0%, #f8fafb 100%)',
+    },
+    timeline: {
+      maxWidth: '1000px',
+      margin: '0 auto',
+      position: 'relative',
+    },
+    timelineItem: {
       display: 'flex',
       alignItems: 'center',
-      gap: '1rem',
-      padding: '1rem',
-      background: 'rgba(0, 102, 204, 0.05)',
-      borderRadius: '12px',
+      marginBottom: 'clamp(2rem, 4vw, 3rem)',
+      position: 'relative',
+    },
+    timelineYear: {
+      minWidth: 'clamp(80px, 12vw, 120px)',
+      fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+      fontWeight: '700',
+      color: '#d4af37',
+      textAlign: 'center',
+    },
+    timelineContent: {
+      flex: 1,
+      background: 'rgba(255,255,255,0.9)',
+      backdropFilter: 'blur(20px)',
+      borderRadius: '16px',
+      padding: 'clamp(1.5rem, 3vw, 2rem)',
+      marginLeft: 'clamp(1rem, 2vw, 2rem)',
+      boxShadow: '0 15px 40px rgba(0, 61, 122, 0.1)',
       border: '1px solid rgba(0, 102, 204, 0.1)',
     },
-    contactSection: {
+    awardsSection: {
+      background: 'linear-gradient(135deg, #f8fafb 0%, #ffffff 100%)',
+    },
+    awardsGrid: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+      gap: 'clamp(1.5rem, 3vw, 2rem)',
+      maxWidth: '1200px',
+      margin: '0 auto',
+    },
+    awardCard: {
+      background: 'rgba(255,255,255,0.9)',
+      backdropFilter: 'blur(20px)',
+      borderRadius: '20px',
+      padding: 'clamp(1.5rem, 3vw, 2rem)',
+      textAlign: 'center',
+      boxShadow: '0 15px 40px rgba(0, 61, 122, 0.1)',
+      border: '1px solid rgba(0, 102, 204, 0.1)',
+      transition: 'all 0.6s ease',
+    },
+    ctaSection: {
       background: 'linear-gradient(135deg, #003d7a 0%, #0066cc 100%)',
       color: '#ffffff',
       textAlign: 'center',
     },
-    contactGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-      gap: '2rem',
-      marginTop: '4rem',
-    },
-    contactCard: {
-      background: 'rgba(255,255,255,0.1)',
-      backdropFilter: 'blur(20px)',
-      borderRadius: '20px',
-      padding: '2rem',
-      border: '1px solid rgba(255,255,255,0.2)',
+    ctaButton: {
+      background: 'linear-gradient(135deg, #d4af37, #f4d03f)',
+      color: '#1a1a1a',
+      padding: 'clamp(0.8rem, 2vw, 1.1rem) clamp(2rem, 4vw, 2.8rem)',
+      borderRadius: '50px',
+      border: 'none',
+      fontSize: 'clamp(1rem, 2vw, 1.15rem)',
+      fontWeight: '600',
+      cursor: 'pointer',
       transition: 'all 0.4s ease',
+      boxShadow: '0 10px 30px rgba(212, 175, 55, 0.4)',
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '0.5rem',
+      margin: '0 0.5rem 0.5rem',
     },
-    testimonialSlider: {
-      maxWidth: '900px',
-      margin: '0 auto',
-      position: 'relative',
-      background: 'rgba(255,255,255,0.9)',
-      backdropFilter: 'blur(20px)',
-      borderRadius: '32px',
-      padding: '3rem',
-      boxShadow: '0 20px 60px rgba(0, 61, 122, 0.1)',
-      border: '1px solid rgba(0, 102, 204, 0.1)',
-    },
-    floatingIcon: {
+    playButton: {
       position: 'absolute',
-      animation: 'float 6s ease-in-out infinite',
-      opacity: 0.1,
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      background: 'rgba(212, 175, 55, 0.9)',
+      borderRadius: '50%',
+      padding: '1.5rem',
+      border: 'none',
+      cursor: 'pointer',
+      transition: 'all 0.4s ease',
+      boxShadow: '0 15px 40px rgba(212, 175, 55, 0.4)',
+      opacity: 0,
+      zIndex: 5,
+    },
+    modal: {
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      background: 'rgba(0, 30, 60, 0.95)',
+      backdropFilter: 'blur(20px)',
+      zIndex: 2000,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '2rem',
+    },
+    modalContent: {
+      background: 'rgba(255,255,255,0.95)',
+      borderRadius: '24px',
+      padding: 'clamp(2rem, 4vw, 3rem)',
+      maxWidth: '600px',
+      width: '100%',
+      maxHeight: '80vh',
+      overflow: 'auto',
+      position: 'relative',
+    },
+    closeButton: {
+      position: 'absolute',
+      top: '1rem',
+      right: '1rem',
+      background: 'linear-gradient(135deg, #d4af37, #f4d03f)',
+      border: 'none',
+      borderRadius: '50%',
+      padding: '0.5rem',
+      cursor: 'pointer',
+      transition: 'all 0.3s ease',
+    },
+    floatingElements: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      pointerEvents: 'none',
       zIndex: 1,
-    }
+    },
+
+    // Mobile-specific responsive adjustments
+    '@media (max-width: 768px)': {
+      heroContent: {
+        padding: '0 1rem',
+      },
+      storyGrid: {
+        gridTemplateColumns: '1fr',
+      },
+      valuesGrid: {
+        gridTemplateColumns: '1fr',
+        gap: '1.5rem',
+      },
+      teamGrid: {
+        gridTemplateColumns: '1fr',
+      },
+      timelineItem: {
+        flexDirection: 'column',
+        textAlign: 'center',
+      },
+      timelineContent: {
+        marginLeft: 0,
+        marginTop: '1rem',
+      },
+    },
+
+    // Tablet adjustments
+    '@media (min-width: 769px) and (max-width: 1024px)': {
+      storyGrid: {
+        gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+      },
+      valuesGrid: {
+        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+      },
+      teamGrid: {
+        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+      },
+    },
   };
 
   const keyframes = `
     @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(50px);
       }
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
-    @keyframes float {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-20px) rotate(180deg); }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
-    @keyframes glow {
-      0%, 100% { box-shadow: 0 0 20px rgba(0, 102, 204, 0.3); }
-      50% { box-shadow: 0 0 40px rgba(0, 102, 204, 0.6), 0 0 60px rgba(212, 175, 55, 0.2); }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
     }
   `;
 
-  const teamMembers = [
+  const values = [
     {
-      icon: <Users size={40} color="#ffffff" />,
-      title: "Multilingual Crew",
-      description: "Our dedicated team speaks English, Greek, Turkish, Spanish, Russian and more, ensuring every guest feels welcomed and well taken care of.",
-      languages: ["English", "Greek", "Turkish", "Spanish", "Russian"]
+      icon: <Shield size={36} />,
+      title: "Safety First",
+      description: "Your safety is our top priority. We maintain the highest safety standards with certified crew and modern equipment."
     },
     {
-      icon: <ChefHat size={40} color="#ffffff" />,
-      title: "Expert Chefs",
-      description: "Two talented chefs onboard, crafting exquisite meals using the finest, locally sourced ingredients and traditional Greek flavors.",
-      specialties: ["Mediterranean Cuisine", "Traditional Greek", "Fresh Seafood", "Local Ingredients"]
+      icon: <Heart size={36} />,
+      title: "Passion",
+      description: "We love what we do and it shows. Our passion for the sea drives us to create exceptional experiences."
     },
     {
-      icon: <Shield size={40} color="#ffffff" />,
-      title: "Operations Team",
-      description: "Our efficient operational experts ensure every detail of your booking and transfer process is seamless and stress-free.",
-      services: ["Booking Management", "Transfer Coordination", "Guest Services", "Safety Protocols"]
+      icon: <Award size={36} />,
+      title: "Excellence",
+      description: "We strive for excellence in every detail, from our vessels to our service, ensuring unforgettable moments."
+    },
+    {
+      icon: <Users size={36} />,
+      title: "Community",
+      description: "Building lasting relationships with our guests and supporting local maritime communities in Greece."
     }
   ];
 
-  const services = [
+  const team = [
     {
-      icon: <Calendar size={24} color="#0066cc" />,
-      title: "Daily Cruises",
-      description: "Wide range of daily cruises departing from Athens, allowing you to discover the beauty and charm of nearby islands.",
-      features: ["Multiple departure times", "Professional guides", "All-inclusive packages", "Small group sizes"]
+      name: "Captain Dimitrios Kostas",
+      role: "Founder & Captain",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400",
+      bio: "20+ years of maritime experience in the Aegean Sea",
+      specialties: ["Navigation", "Safety", "Local Waters"]
     },
     {
-      icon: <Heart size={24} color="#0066cc" />,
-      title: "Customized Packages",
-      description: "Tailor your cruise experience to your preferences with our customizable packages for a personalized journey.",
-      features: ["Flexible itineraries", "Private charters", "Special occasions", "Corporate events"]
+      name: "Maria Papadopoulos",
+      role: "Operations Manager",
+      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400",
+      bio: "Expert in hospitality and cruise operations",
+      specialties: ["Guest Services", "Operations", "Quality Control"]
+    },
+    {
+      name: "Nikos Alexandros",
+      role: "Chief Engineer",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400",
+      bio: "Marine engineer ensuring vessel performance",
+      specialties: ["Engineering", "Maintenance", "Safety Systems"]
+    },
+    {
+      name: "Sofia Georgiou",
+      role: "Guest Experience Director",
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400",
+      bio: "Creating memorable experiences for every guest",
+      specialties: ["Guest Relations", "Event Planning", "Hospitality"]
     }
   ];
 
-  const destinations = [
+  const timeline = [
     {
-      image: "https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=600",
-      title: "Saronic Islands",
-      subtitle: "Agistri, Moni & Aegina",
-      description: "Each offering unique charm, history, and natural beauty in crystal-clear waters."
+      year: "2014",
+      title: "Founded",
+      description: "Cruise in Athens was established with a vision to share the beauty of the Saronic Gulf with travelers from around the world."
     },
     {
-      image: "https://images.unsplash.com/photo-1555993539-1732b0258235?w=600",
-      title: "Athens Riviera",
-      subtitle: "Cape Sounio",
-      description: "Experience the beauty of Athens Riviera and famous Poseidon's Temple at Cape Sounio."
+      year: "2016",
+      title: "Fleet Expansion",
+      description: "Added luxury catamarans to our fleet, expanding our capacity and comfort offerings for larger groups."
+    },
+    {
+      year: "2019",
+      title: "Award Recognition",
+      description: "Received the 'Best Maritime Experience' award from the Greek Tourism Organization."
+    },
+    {
+      year: "2021",
+      title: "Sustainability Initiative",
+      description: "Launched our eco-friendly program, implementing sustainable practices across all operations."
+    },
+    {
+      year: "2024",
+      title: "10 Years Strong",
+      description: "Celebrating a decade of excellence with over 5,000 satisfied guests and 50+ unique destinations."
     }
   ];
 
-  const onboardFeatures = [
-    { icon: <Trophy size={20} />, text: "Award Winning Vessels - Angelique and Martika" },
-    { icon: <Ship size={20} />, text: "Newest, most luxurious and biggest boats in Athens" },
-    { icon: <Waves size={20} />, text: "SUP and snorkeling equipment included" },
-    { icon: <Sunset size={20} />, text: "Comfortable sun-loungers for relaxation" },
-    { icon: <Utensils size={20} />, text: "Gourmet Greek cuisine in buffet style" },
-    { icon: <Fish size={20} />, text: "Fresh ingredients and exquisite flavors" }
+  const awards = [
+    {
+      icon: <Trophy size={32} />,
+      title: "Best Maritime Experience",
+      year: "2023",
+      organization: "Greek Tourism Awards"
+    },
+    {
+      icon: <Star size={32} />,
+      title: "Excellence in Service",
+      year: "2022",
+      organization: "Travel & Leisure"
+    },
+    {
+      icon: <Shield size={32} />,
+      title: "Safety Excellence",
+      year: "2023",
+      organization: "Maritime Safety Authority"
+    },
+    {
+      icon: <Globe size={32} />,
+      title: "Eco-Friendly Operator",
+      year: "2023",
+      organization: "Green Tourism Board"
+    }
   ];
+
+  const FloatingElements = ({ count = 20, color = "rgba(0, 102, 204, 0.1)" }) => (
+    <div style={styles.floatingElements}>
+      {[...Array(count)].map((_, i) => (
+        <div
+          key={i}
+          style={{
+            position: 'absolute',
+            width: '4px',
+            height: '4px',
+            background: color,
+            borderRadius: '50%',
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            animation: `float ${3 + Math.random() * 4}s ease-in-out infinite`,
+            animationDelay: `${Math.random() * 2}s`,
+          }}
+        />
+      ))}
+    </div>
+  );
 
   return (
     <>
       <style>{keyframes}</style>
       <div style={styles.container}>
-        {/* Floating background elements */}
-        <div style={{...styles.floatingIcon, top: '10%', left: '5%'}}>
-          <Anchor size={100} color="#0066cc" />
-        </div>
-        <div style={{...styles.floatingIcon, top: '30%', right: '10%', animationDelay: '2s'}}>
-          <Ship size={80} color="#d4af37" />
-        </div>
-        <div style={{...styles.floatingIcon, bottom: '20%', left: '8%', animationDelay: '4s'}}>
-          <Compass size={90} color="#0066cc" />
-        </div>
-
         {/* Hero Section */}
         <section style={styles.heroSection}>
+          <div style={styles.heroBackground}></div>
+          <div style={styles.heroOverlay}></div>
+          
           <div style={styles.heroContent}>
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '1rem',
-              marginBottom: '2rem'
-            }}>
-              <div style={{
-                background: 'linear-gradient(135deg, #d4af37, #f4d03f)',
-                padding: '1rem',
-                borderRadius: '20px',
+            <p style={styles.heroSubtitle}>
+              <Anchor size={20} />
+              <span>Our Story</span>
+              <Sparkles size={20} />
+            </p>
+            <h1 style={styles.heroTitle}>Cruise in Athens</h1>
+            <p style={styles.heroDescription}>
+              Born from a passion for the sea and a love for Greek hospitality, we've been creating 
+              unforgettable maritime adventures in the Saronic Gulf since 2014.
+            </p>
+            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <button 
+                style={styles.ctaButton}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = 'translateY(-5px) scale(1.05)';
+                  e.currentTarget.style.boxShadow = '0 15px 40px rgba(212, 175, 55, 0.5)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.boxShadow = '0 10px 30px rgba(212, 175, 55, 0.4)';
+                }}
+              >
+                <Users size={20} />
+                Meet Our Team
+              </button>
+              <button 
+                style={{
+                  ...styles.ctaButton,
+                  background: 'rgba(255,255,255,0.1)',
+                  color: '#ffffff',
+                  border: '2px solid rgba(255,255,255,0.3)',
+                }}
+                onClick={() => setVideoModalOpen(true)}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = 'translateY(-5px) scale(1.05)';
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.2)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
+                }}
+              >
+                <Play size={20} />
+                Watch Our Story
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* Our Story Section */}
+        <section style={{ ...styles.section, ...styles.storySection }}>
+          <FloatingElements count={15} color="rgba(212, 175, 55, 0.1)" />
+          
+          <h2 style={styles.sectionTitle}>Our Story</h2>
+          <p style={styles.sectionSubtitle}>
+            From humble beginnings to becoming Greece's premier cruise experience
+          </p>
+          
+          <div style={styles.storyGrid}>
+            <div 
+              className="fade-in"
+              id="story-content"
+              style={{
+                ...styles.storyContent,
+                opacity: isVisible['story-content'] ? 1 : 0,
+                transform: isVisible['story-content'] ? 'translateY(0)' : 'translateY(50px)',
+                transition: 'all 1s ease',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = 'translateY(-10px) scale(1.02)';
+                e.currentTarget.style.boxShadow = '0 30px 80px rgba(0, 61, 122, 0.15)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                e.currentTarget.style.boxShadow = '0 20px 60px rgba(0, 61, 122, 0.1)';
+              }}
+            >
+              <h3 style={{ 
+                fontSize: 'clamp(1.5rem, 3vw, 2rem)', 
+                color: '#003d7a', 
+                marginBottom: '1.5rem',
                 display: 'flex',
                 alignItems: 'center',
-                boxShadow: '0 10px 30px rgba(212, 175, 55, 0.4)',
+                gap: '0.5rem',
               }}>
-                <Anchor size={40} color="#001e3c" />
-              </div>
-              <div>
-                <h1 style={styles.heroTitle}>About Cruise in Athens</h1>
+                <Ship size={28} />
+                The Beginning
+              </h3>
+              <p style={{ 
+                lineHeight: '1.8', 
+                color: '#4b5563', 
+                marginBottom: '1.5rem',
+                fontSize: 'clamp(1rem, 2vw, 1.1rem)',
+              }}>
+                Founded in 2014 by Captain Dimitrios Kostas, Cruise in Athens began as a dream 
+                to share the hidden treasures of the Saronic Gulf with visitors from around the world. 
+                With over two decades of maritime experience, Captain Kostas recognized the need for 
+                authentic, high-quality cruise experiences that showcase the natural beauty and 
+                cultural richness of the Greek islands.
+              </p>
+              <p style={{ 
+                lineHeight: '1.8', 
+                color: '#4b5563',
+                fontSize: 'clamp(1rem, 2vw, 1.1rem)',
+              }}>
+                What started with a single yacht has grown into a fleet of luxury vessels, 
+                each carefully selected and maintained to provide the ultimate in comfort, 
+                safety, and style. Today, we're proud to be one of Athens' most trusted 
+                cruise operators, serving thousands of guests annually.
+              </p>
+              <div style={{ 
+                display: 'flex', 
+                gap: '2rem', 
+                marginTop: '2rem',
+                flexWrap: 'wrap',
+              }}>
+                <div style={{ textAlign: 'center' }}>
+                  <div style={{ 
+                    fontSize: 'clamp(2rem, 4vw, 3rem)', 
+                    fontWeight: '700', 
+                    color: '#d4af37' 
+                  }}>10+</div>
+                  <div style={{ color: '#6b7280', fontSize: 'clamp(0.9rem, 2vw, 1rem)' }}>Years</div>
+                </div>
+                <div style={{ textAlign: 'center' }}>
+                  <div style={{ 
+                    fontSize: 'clamp(2rem, 4vw, 3rem)', 
+                    fontWeight: '700', 
+                    color: '#d4af37' 
+                  }}>5000+</div>
+                  <div style={{ color: '#6b7280', fontSize: 'clamp(0.9rem, 2vw, 1rem)' }}>Guests</div>
+                </div>
+                <div style={{ textAlign: 'center' }}>
+                  <div style={{ 
+                    fontSize: 'clamp(2rem, 4vw, 3rem)', 
+                    fontWeight: '700', 
+                    color: '#d4af37' 
+                  }}>50+</div>
+                  <div style={{ color: '#6b7280', fontSize: 'clamp(0.9rem, 2vw, 1rem)' }}>Destinations</div>
+                </div>
               </div>
             </div>
             
-            <p style={styles.heroSubtitle}>
-              Your premier travel agency for sea adventures in Athens. With our expertise and dedication, 
-              we aim to provide unforgettable experiences exploring the stunning Greek islands and coastline.
-            </p>
-
-            <div style={styles.heroStats}>
-              <div style={styles.statItem}
-                onMouseEnter={e => {
-                  e.currentTarget.style.transform = 'translateY(-10px) scale(1.05)';
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.2)';
+            <div 
+              className="fade-in"
+              id="story-image"
+              style={{
+                opacity: isVisible['story-image'] ? 1 : 0,
+                transform: isVisible['story-image'] ? 'translateY(0)' : 'translateY(50px)',
+                transition: 'all 1s ease 0.2s',
+                position: 'relative',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.querySelector('img').style.transform = 'scale(1.05) rotate(2deg)';
+                e.currentTarget.querySelector('.play-overlay').style.opacity = '1';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.querySelector('img').style.transform = 'scale(1) rotate(0deg)';
+                e.currentTarget.querySelector('.play-overlay').style.opacity = '0';
+              }}
+            >
+              <img 
+                src="/images/ship1.jpeg" 
+                alt="Our beautiful fleet"
+                style={styles.storyImage}
+              />
+              <div 
+                className="play-overlay"
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  background: 'rgba(0, 30, 60, 0.7)',
+                  borderRadius: '20px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  opacity: 0,
+                  transition: 'opacity 0.3s ease',
+                  cursor: 'pointer',
                 }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-                }}
+                onClick={() => setVideoModalOpen(true)}
               >
-                <div style={{ fontSize: '2.5rem', fontWeight: '700', color: '#d4af37', marginBottom: '0.5rem' }}>10+</div>
-                <div>Years Experience</div>
-              </div>
-              <div style={styles.statItem}
-                onMouseEnter={e => {
-                  e.currentTarget.style.transform = 'translateY(-10px) scale(1.05)';
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.2)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-                }}
-              >
-                <div style={{ fontSize: '2.5rem', fontWeight: '700', color: '#d4af37', marginBottom: '0.5rem' }}>2</div>
-                <div>Luxury Yachts</div>
-              </div>
-              <div style={styles.statItem}
-                onMouseEnter={e => {
-                  e.currentTarget.style.transform = 'translateY(-10px) scale(1.05)';
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.2)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-                }}
-              >
-                <div style={{ fontSize: '2.5rem', fontWeight: '700', color: '#d4af37', marginBottom: '0.5rem' }}>5000+</div>
-                <div>Happy Guests</div>
-              </div>
-              <div style={styles.statItem}
-                onMouseEnter={e => {
-                  e.currentTarget.style.transform = 'translateY(-10px) scale(1.05)';
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.2)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-                }}
-              >
-                <div style={{ fontSize: '2.5rem', fontWeight: '700', color: '#d4af37', marginBottom: '0.5rem' }}>100%</div>
-                <div>Safety Record</div>
+                <button style={{
+                  background: 'linear-gradient(135deg, #d4af37, #f4d03f)',
+                  border: 'none',
+                  borderRadius: '50%',
+                  padding: '1.5rem',
+                  cursor: 'pointer',
+                  boxShadow: '0 15px 40px rgba(212, 175, 55, 0.4)',
+                  animation: 'pulse 2s infinite',
+                }}>
+                  <Play size={32} color="#1a1a1a" />
+                </button>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Vision Section */}
-        <section style={{...styles.section, ...styles.sectionAlt}}>
-          <div style={styles.container}>
-            <h2 style={styles.sectionTitle}>Our Vision & Mission</h2>
-            <p style={styles.sectionSubtitle}>
-              We create authentic cruises and lifetime experiences
-            </p>
-
-            <div style={styles.twoColumnGrid}>
+        {/* Values Section */}
+        <section style={{ ...styles.section, ...styles.valuesSection }}>
+          <FloatingElements count={20} color="rgba(255, 255, 255, 0.1)" />
+          
+          <h2 style={{ ...styles.sectionTitle, color: '#ffffff' }}>Our Values</h2>
+          <p style={{ ...styles.sectionSubtitle, color: 'rgba(255,255,255,0.8)' }}>
+            The principles that guide everything we do
+          </p>
+          
+          <div style={styles.valuesGrid}>
+            {values.map((value, index) => (
               <div 
+                key={index}
                 className="fade-in"
-                id="vision-content"
+                id={`value-${index}`}
                 style={{
-                  ...styles.contentCard,
-                  opacity: isVisible['vision-content'] ? 1 : 0,
-                  transform: isVisible['vision-content'] ? 'translateX(0)' : 'translateX(-50px)',
-                  transition: 'all 1s ease'
+                  ...styles.valueCard,
+                  opacity: isVisible[`value-${index}`] ? 1 : 0,
+                  transform: isVisible[`value-${index}`] ? 'translateY(0)' : 'translateY(50px)',
+                  transition: `all 1s ease ${index * 0.1}s`,
                 }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.transform = 'translateY(-10px) rotateX(-5deg) rotateY(10deg)';
-                  e.currentTarget.style.boxShadow = '0 30px 80px rgba(0, 61, 122, 0.15)';
+                  e.currentTarget.style.transform = 'translateY(-15px) scale(1.05)';
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.2)';
+                  e.currentTarget.style.boxShadow = '0 25px 60px rgba(0, 0, 0, 0.3)';
                 }}
                 onMouseLeave={e => {
-                  e.currentTarget.style.transform = 'translateY(0) rotateX(0deg) rotateY(0deg)';
-                  e.currentTarget.style.boxShadow = '0 20px 60px rgba(0, 61, 122, 0.1)';
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
+                  e.currentTarget.style.boxShadow = 'none';
                 }}
               >
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '1rem',
-                  marginBottom: '2rem'
-                }}>
-                  <div style={{
-                    background: 'linear-gradient(135deg, #0066cc, #003d7a)',
-                    padding: '1rem',
-                    borderRadius: '16px',
-                    display: 'flex',
-                    alignItems: 'center',
-                  }}>
-                    <Heart size={32} color="#ffffff" />
-                  </div>
-                  <h3 style={{ fontSize: '2rem', color: '#003d7a', margin: 0 }}>Our Mission</h3>
+                <div style={styles.valueIcon}>
+                  {React.cloneElement(value.icon, { color: '#1a1a1a' })}
                 </div>
-                
-                <p style={{ 
-                  fontSize: '1.1rem', 
-                  lineHeight: '1.8', 
-                  color: '#4b5563',
-                  marginBottom: '2rem'
+                <h3 style={{ 
+                  fontSize: 'clamp(1.2rem, 2.5vw, 1.5rem)', 
+                  marginBottom: '1rem',
+                  color: '#ffffff',
                 }}>
-                  Welcome to Cruise in Athens, your gateway to unforgettable cruising experiences in the stunning Saronic Islands. 
-                  Our mission is to provide you with an exceptional and personalized journey through these beautiful islands, 
-                  combining relaxation, adventure, and cultural discovery.
-                </p>
-
+                  {value.title}
+                </h3>
                 <p style={{ 
-                  fontSize: '1.1rem', 
-                  lineHeight: '1.8', 
-                  color: '#4b5563'
+                  color: 'rgba(255,255,255,0.8)', 
+                  lineHeight: '1.6',
+                  fontSize: 'clamp(0.9rem, 2vw, 1rem)',
                 }}>
-                  With a fleet of two luxurious, well-maintained yachts and a team of experienced, friendly crew members, 
-                  we promise to deliver a seamless, safe, and unforgettable cruise experience. Our passion for the Saronic Islands 
-                  and commitment to exceptional service make us the perfect choice for your next adventure on the water.
+                  {value.description}
                 </p>
               </div>
-
-              <div 
-                className="fade-in"
-                id="vision-image"
-                style={{
-                  ...styles.imageCard,
-                  opacity: isVisible['vision-image'] ? 1 : 0,
-                  transform: isVisible['vision-image'] ? 'translateX(0)' : 'translateX(50px)',
-                  transition: 'all 1s ease 0.2s'
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.transform = 'translateY(-10px) rotateY(-10deg) scale(1.05)';
-                  e.currentTarget.style.boxShadow = '0 30px 80px rgba(0, 61, 122, 0.25)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.transform = 'translateY(0) rotateY(0deg) scale(1)';
-                  e.currentTarget.style.boxShadow = '0 20px 60px rgba(0, 61, 122, 0.15)';
-                }}
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800" 
-                  alt="Luxury yacht cruise" 
-                  style={{ 
-                    width: '100%', 
-                    height: '400px', 
-                    objectFit: 'cover',
-                    transition: 'transform 0.6s ease'
-                  }}
-                />
-              </div>
-            </div>
+            ))}
           </div>
         </section>
 
         {/* Team Section */}
-        <section style={styles.section}>
-          <div style={styles.container}>
-            <h2 style={styles.sectionTitle}>Our Expert Team</h2>
-            <p style={styles.sectionSubtitle}>
-              Dedicated professionals committed to providing exceptional service and unforgettable experiences
-            </p>
-
-            <div style={styles.teamGrid}>
-              {teamMembers.map((member, index) => (
-                <div 
-                  key={index}
-                  className="fade-in"
-                  id={`team-${index}`}
-                  style={{
-                    ...styles.teamCard,
-                    opacity: isVisible[`team-${index}`] ? 1 : 0,
-                    transform: isVisible[`team-${index}`] ? 'translateY(0)' : 'translateY(50px)',
-                    transition: `all 1s ease ${index * 0.2}s`
-                  }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.transform = 'translateY(-15px) rotateX(-8deg) rotateY(5deg) scale(1.05)';
-                    e.currentTarget.style.boxShadow = '0 30px 80px rgba(0, 61, 122, 0.15)';
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.transform = 'translateY(0) rotateX(0deg) rotateY(0deg) scale(1)';
-                    e.currentTarget.style.boxShadow = '0 20px 60px rgba(0, 61, 122, 0.1)';
-                  }}
-                >
-                  <div style={styles.iconWrapper}>
-                    {member.icon}
-                    <div style={{
-                      position: 'absolute',
-                      inset: 0,
-                      borderRadius: '50%',
-                      background: 'linear-gradient(135deg, #0066cc, #003d7a)',
-                      opacity: 0.8,
-                      animation: 'glow 4s ease-in-out infinite',
-                      zIndex: -1,
-                    }}></div>
-                  </div>
-                  
-                  <h3 style={{ 
-                    fontSize: '1.8rem', 
-                    marginBottom: '1rem', 
-                    color: '#003d7a',
-                    fontWeight: '600'
-                  }}>
-                    {member.title}
-                  </h3>
-                  
-                  <p style={{ 
-                    color: '#6b7280', 
-                    lineHeight: '1.7', 
-                    marginBottom: '2rem',
-                    fontSize: '1.1rem'
-                  }}>
-                    {member.description}
-                  </p>
-
-                  {member.languages && (
-                    <div>
-                      <h4 style={{ color: '#003d7a', marginBottom: '1rem' }}>Languages Spoken:</h4>
-                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                        {member.languages.map((lang, i) => (
-                          <span key={i} style={{
-                            background: 'linear-gradient(135deg, #d4af37, #f4d03f)',
-                            color: '#1a1a1a',
-                            padding: '0.4rem 0.8rem',
-                            borderRadius: '20px',
-                            fontSize: '0.9rem',
-                            fontWeight: '500'
-                          }}>
-                            {lang}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {member.specialties && (
-                    <div>
-                      <h4 style={{ color: '#003d7a', marginBottom: '1rem' }}>Specialties:</h4>
-                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                        {member.specialties.map((specialty, i) => (
-                          <span key={i} style={{
-                            background: 'rgba(0, 102, 204, 0.1)',
-                            color: '#0066cc',
-                            padding: '0.4rem 0.8rem',
-                            borderRadius: '20px',
-                            fontSize: '0.9rem',
-                            fontWeight: '500',
-                            border: '1px solid rgba(0, 102, 204, 0.2)'
-                          }}>
-                            {specialty}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {member.services && (
-                    <div>
-                      <h4 style={{ color: '#003d7a', marginBottom: '1rem' }}>Services:</h4>
-                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                        {member.services.map((service, i) => (
-                          <span key={i} style={{
-                            background: 'rgba(0, 102, 204, 0.1)',
-                            color: '#0066cc',
-                            padding: '0.4rem 0.8rem',
-                            borderRadius: '20px',
-                            fontSize: '0.9rem',
-                            fontWeight: '500',
-                            border: '1px solid rgba(0, 102, 204, 0.2)'
-                          }}>
-                            {service}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Services Section */}
-        <section style={{...styles.section, ...styles.sectionAlt}}>
-          <div style={styles.container}>
-            <h2 style={styles.sectionTitle}>Our Services</h2>
-            <p style={styles.sectionSubtitle}>
-              Comprehensive cruise experiences tailored to your preferences
-            </p>
-
-            <div style={styles.servicesGrid}>
-              {services.map((service, index) => (
-                <div 
-                  key={index}
-                  className="fade-in"
-                  id={`service-${index}`}
-                  style={{
-                    ...styles.serviceCard,
-                    opacity: isVisible[`service-${index}`] ? 1 : 0,
-                    transform: isVisible[`service-${index}`] ? 'translateY(0)' : 'translateY(30px)',
-                    transition: `all 1s ease ${index * 0.2}s`
-                  }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.transform = 'translateY(-10px) scale(1.03)';
-                    e.currentTarget.style.boxShadow = '0 25px 60px rgba(0, 61, 122, 0.15)';
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                    e.currentTarget.style.boxShadow = '0 15px 40px rgba(0, 61, 122, 0.1)';
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-                    <div style={{
-                      background: 'rgba(0, 102, 204, 0.1)',
-                      padding: '1rem',
-                      borderRadius: '12px',
-                      border: '1px solid rgba(0, 102, 204, 0.2)'
-                    }}>
-                      {service.icon}
-                    </div>
-                    <h3 style={{ fontSize: '1.5rem', color: '#003d7a', margin: 0 }}>{service.title}</h3>
-                  </div>
-                  
-                  <p style={{ 
-                    color: '#6b7280', 
-                    lineHeight: '1.7', 
-                    marginBottom: '1.5rem',
-                    fontSize: '1.1rem'
-                  }}>
-                    {service.description}
-                  </p>
-
-                  <div style={styles.featureList}>
-                    {service.features.map((feature, i) => (
-                      <div key={i} style={styles.featureItem}>
-                        <CheckCircle size={20} color="#0066cc" />
-                        <span style={{ color: '#4b5563' }}>{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Destinations Section */}
-        <section style={styles.section}>
-          <div style={styles.container}>
-            <h2 style={styles.sectionTitle}>Our Destinations</h2>
-            <p style={styles.sectionSubtitle}>
-              Explore breathtaking locations in the Saronic Gulf and Athens Riviera
-            </p>
-
-            <div style={styles.destinationGrid}>
-              {destinations.map((destination, index) => (
-                <div 
-                  key={index}
-                  className="fade-in"
-                  id={`destination-${index}`}
-                  style={{
-                    ...styles.destinationCard,
-                    opacity: isVisible[`destination-${index}`] ? 1 : 0,
-                    transform: isVisible[`destination-${index}`] ? 'translateY(0)' : 'translateY(30px)',
-                    transition: `all 1s ease ${index * 0.2}s`
-                  }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.transform = 'translateY(-15px) scale(1.05)';
-                    e.currentTarget.style.boxShadow = '0 25px 60px rgba(0, 61, 122, 0.2)';
-                    e.currentTarget.querySelector('img').style.transform = 'scale(1.1)';
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                    e.currentTarget.style.boxShadow = '0 15px 40px rgba(0, 61, 122, 0.1)';
-                    e.currentTarget.querySelector('img').style.transform = 'scale(1)';
-                  }}
-                >
-                  <img 
-                    src={destination.image} 
-                    alt={destination.title}
-                    style={{
-                      width: '100%',
-                      height: '250px',
-                      objectFit: 'cover',
-                      transition: 'transform 0.6s ease'
-                    }}
-                  />
-                  <div style={{ padding: '2rem' }}>
-                    <h3 style={{ 
-                      fontSize: '1.8rem', 
-                      color: '#003d7a', 
-                      marginBottom: '0.5rem',
-                      fontWeight: '600'
-                    }}>
-                      {destination.title}
-                    </h3>
-                    <p style={{ 
-                      color: '#d4af37', 
-                      fontSize: '1.1rem', 
-                      fontWeight: '500',
-                      marginBottom: '1rem'
-                    }}>
-                      {destination.subtitle}
-                    </p>
-                    <p style={{ 
-                      color: '#6b7280', 
-                      lineHeight: '1.7',
-                      fontSize: '1.1rem'
-                    }}>
-                      {destination.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Onboard Experience Section */}
-        <section style={{...styles.section, ...styles.sectionAlt}}>
-          <div style={styles.container}>
-            <h2 style={styles.sectionTitle}>Onboard Experience</h2>
-            <p style={styles.sectionSubtitle}>
-              Award-winning vessels with premium amenities for the ultimate comfort
-            </p>
-
-            <div style={styles.twoColumnGrid}>
+        <section style={{ ...styles.section, ...styles.teamSection }}>
+          <FloatingElements count={12} color="rgba(0, 102, 204, 0.08)" />
+          
+          <h2 style={styles.sectionTitle}>Meet Our Team</h2>
+          <p style={styles.sectionSubtitle}>
+            Experienced professionals dedicated to your perfect cruise experience
+          </p>
+          
+          <div style={styles.teamGrid}>
+            {team.map((member, index) => (
               <div 
+                key={index}
                 className="fade-in"
-                id="onboard-image"
+                id={`team-${index}`}
                 style={{
-                  ...styles.imageCard,
-                  opacity: isVisible['onboard-image'] ? 1 : 0,
-                  transform: isVisible['onboard-image'] ? 'translateX(0)' : 'translateX(-50px)',
-                  transition: 'all 1s ease'
+                  ...styles.teamCard,
+                  opacity: isVisible[`team-${index}`] ? 1 : 0,
+                  transform: isVisible[`team-${index}`] ? 'translateY(0)' : 'translateY(50px)',
+                  transition: `all 1s ease ${index * 0.15}s`,
                 }}
+                onClick={() => setActiveTeamMember(member)}
                 onMouseEnter={e => {
-                  e.currentTarget.style.transform = 'translateY(-10px) rotateY(10deg) scale(1.05)';
-                  e.currentTarget.style.boxShadow = '0 30px 80px rgba(0, 61, 122, 0.25)';
+                  e.currentTarget.style.transform = 'translateY(-15px) scale(1.02)';
+                  e.currentTarget.style.boxShadow = '0 30px 80px rgba(0, 61, 122, 0.15)';
+                  e.currentTarget.querySelector('img').style.transform = 'scale(1.1)';
                 }}
                 onMouseLeave={e => {
-                  e.currentTarget.style.transform = 'translateY(0) rotateY(0deg) scale(1)';
-                  e.currentTarget.style.boxShadow = '0 20px 60px rgba(0, 61, 122, 0.15)';
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.boxShadow = '0 20px 60px rgba(0, 61, 122, 0.1)';
+                  e.currentTarget.querySelector('img').style.transform = 'scale(1)';
                 }}
               >
                 <img 
-                  src="https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=800" 
-                  alt="Luxury yacht interior" 
-                  style={{ 
-                    width: '100%', 
-                    height: '400px', 
-                    objectFit: 'cover',
-                    transition: 'transform 0.6s ease'
-                  }}
+                  src={member.image} 
+                  alt={member.name}
+                  style={styles.teamImage}
                 />
-              </div>
-
-              <div 
-                className="fade-in"
-                id="onboard-content"
-                style={{
-                  ...styles.contentCard,
-                  opacity: isVisible['onboard-content'] ? 1 : 0,
-                  transform: isVisible['onboard-content'] ? 'translateX(0)' : 'translateX(50px)',
-                  transition: 'all 1s ease 0.2s'
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.transform = 'translateY(-10px) rotateX(-5deg) rotateY(-10deg)';
-                  e.currentTarget.style.boxShadow = '0 30px 80px rgba(0, 61, 122, 0.15)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.transform = 'translateY(0) rotateX(0deg) rotateY(0deg)';
-                  e.currentTarget.style.boxShadow = '0 20px 60px rgba(0, 61, 122, 0.1)';
-                }}
-              >
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '1rem',
-                  marginBottom: '2rem'
-                }}>
-                  <div style={{
-                    background: 'linear-gradient(135deg, #d4af37, #f4d03f)',
-                    padding: '1rem',
-                    borderRadius: '16px',
-                    display: 'flex',
-                    alignItems: 'center',
+                <div style={styles.teamContent}>
+                  <h3 style={{ 
+                    fontSize: 'clamp(1.2rem, 2.5vw, 1.4rem)', 
+                    color: '#003d7a', 
+                    marginBottom: '0.5rem',
                   }}>
-                    <Award size={32} color="#1a1a1a" />
+                    {member.name}
+                  </h3>
+                  <p style={{ 
+                    color: '#d4af37', 
+                    fontWeight: '600', 
+                    marginBottom: '1rem',
+                    fontSize: 'clamp(0.9rem, 2vw, 1rem)',
+                  }}>
+                    {member.role}
+                  </p>
+                  <p style={{ 
+                    color: '#6b7280', 
+                    lineHeight: '1.6', 
+                    marginBottom: '1rem',
+                    fontSize: 'clamp(0.9rem, 2vw, 1rem)',
+                  }}>
+                    {member.bio}
+                  </p>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                    {member.specialties.map((specialty, i) => (
+                      <span 
+                        key={i}
+                        style={{
+                          background: 'rgba(0, 102, 204, 0.1)',
+                          color: '#0066cc',
+                          padding: '0.25rem 0.75rem',
+                          borderRadius: '50px',
+                          fontSize: 'clamp(0.7rem, 1.5vw, 0.8rem)',
+                          fontWeight: '500',
+                        }}
+                      >
+                        {specialty}
+                      </span>
+                    ))}
                   </div>
-                  <h3 style={{ fontSize: '2rem', color: '#003d7a', margin: 0 }}>Premium Comfort</h3>
-                </div>
-
-                <div style={styles.featureList}>
-                  {onboardFeatures.map((feature, i) => (
-                    <div key={i} style={{
-                      ...styles.featureItem,
-                      background: 'linear-gradient(135deg, rgba(0, 102, 204, 0.05), rgba(212, 175, 55, 0.05))',
-                      border: '1px solid rgba(0, 102, 204, 0.1)',
-                    }}>
-                      <div style={{
-                        background: 'linear-gradient(135deg, #0066cc, #003d7a)',
-                        padding: '0.5rem',
-                        borderRadius: '8px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        color: '#ffffff'
-                      }}>
-                        {feature.icon}
-                      </div>
-                      <span style={{ color: '#4b5563', fontWeight: '500' }}>{feature.text}</span>
-                    </div>
-                  ))}
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </section>
 
-        {/* Contact Section */}
-        <section style={{...styles.section, ...styles.contactSection}}>
-          <div style={styles.container}>
-            <h2 style={{...styles.sectionTitle, color: '#ffffff'}}>Get in Touch</h2>
-            <p style={{...styles.sectionSubtitle, color: 'rgba(255,255,255,0.8)'}}>
-              Ready to embark on your next adventure? Contact us today!
-            </p>
-
-            <div style={styles.contactGrid}>
-              <div style={styles.contactCard}
-                onMouseEnter={e => {
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.2)';
-                  e.currentTarget.style.transform = 'translateY(-10px)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-                  e.currentTarget.style.transform = 'translateY(0)';
-                }}
-              >
-                <MapPin size={32} color="#d4af37" style={{ marginBottom: '1rem' }} />
-                <h3 style={{ fontSize: '1.3rem', marginBottom: '1rem' }}>Address</h3>
-                <p>Marina Zeas 18536</p>
-                <p>Piraeus, Greece</p>
-              </div>
-
-              <div style={styles.contactCard}
-                onMouseEnter={e => {
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.2)';
-                  e.currentTarget.style.transform = 'translateY(-10px)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-                  e.currentTarget.style.transform = 'translateY(0)';
+        {/* Timeline Section */}
+        <section style={{ ...styles.section, ...styles.timelineSection }}>
+          <h2 style={styles.sectionTitle}>Our Journey</h2>
+          <p style={styles.sectionSubtitle}>
+            Milestones that have shaped our story
+          </p>
+          
+          <div style={styles.timeline}>
+            {timeline.map((item, index) => (
+              <div 
+                key={index}
+                className="fade-in"
+                id={`timeline-${index}`}
+                style={{
+                  ...styles.timelineItem,
+                  opacity: isVisible[`timeline-${index}`] ? 1 : 0,
+                  transform: isVisible[`timeline-${index}`] ? 'translateX(0)' : 'translateX(-50px)',
+                  transition: `all 1s ease ${index * 0.2}s`,
                 }}
               >
-                <Phone size={32} color="#d4af37" style={{ marginBottom: '1rem' }} />
-                <h3 style={{ fontSize: '1.3rem', marginBottom: '1rem' }}>Phone</h3>
-                <p>+30 6984922197</p>
+                <div style={styles.timelineYear}>
+                  {item.year}
+                </div>
+                <div 
+                  style={styles.timelineContent}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.transform = 'translateY(-5px) scale(1.02)';
+                    e.currentTarget.style.boxShadow = '0 20px 50px rgba(0, 61, 122, 0.15)';
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                    e.currentTarget.style.boxShadow = '0 15px 40px rgba(0, 61, 122, 0.1)';
+                  }}
+                >
+                  <h3 style={{ 
+                    fontSize: 'clamp(1.2rem, 2.5vw, 1.4rem)', 
+                    color: '#003d7a', 
+                    marginBottom: '0.75rem',
+                  }}>
+                    {item.title}
+                  </h3>
+                  <p style={{ 
+                    color: '#6b7280', 
+                    lineHeight: '1.6',
+                    fontSize: 'clamp(0.9rem, 2vw, 1rem)',
+                  }}>
+                    {item.description}
+                  </p>
+                </div>
               </div>
+            ))}
+          </div>
+        </section>
 
-              <div style={styles.contactCard}
+        {/* Awards Section */}
+        <section style={{ ...styles.section, ...styles.awardsSection }}>
+          <FloatingElements count={8} color="rgba(212, 175, 55, 0.1)" />
+          
+          <h2 style={styles.sectionTitle}>Recognition & Awards</h2>
+          <p style={styles.sectionSubtitle}>
+            Industry recognition for our commitment to excellence
+          </p>
+          
+          <div style={styles.awardsGrid}>
+            {awards.map((award, index) => (
+              <div 
+                key={index}
+                className="fade-in"
+                id={`award-${index}`}
+                style={{
+                  ...styles.awardCard,
+                  opacity: isVisible[`award-${index}`] ? 1 : 0,
+                  transform: isVisible[`award-${index}`] ? 'translateY(0)' : 'translateY(30px)',
+                  transition: `all 1s ease ${index * 0.1}s`,
+                }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.2)';
-                  e.currentTarget.style.transform = 'translateY(-10px)';
+                  e.currentTarget.style.transform = 'translateY(-10px) scale(1.05)';
+                  e.currentTarget.style.boxShadow = '0 25px 60px rgba(0, 61, 122, 0.15)';
                 }}
                 onMouseLeave={e => {
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.boxShadow = '0 15px 40px rgba(0, 61, 122, 0.1)';
                 }}
               >
-                <Mail size={32} color="#d4af37" style={{ marginBottom: '1rem' }} />
-                <h3 style={{ fontSize: '1.3rem', marginBottom: '1rem' }}>Email</h3>
-                <p>info@CruiseInAthens.com</p>
+                <div style={{
+                  ...styles.valueIcon,
+                  width: '60px',
+                  height: '60px',
+                  margin: '0 auto 1rem',
+                }}>
+                  {React.cloneElement(award.icon, { color: '#1a1a1a' })}
+                </div>
+                <h3 style={{ 
+                  fontSize: 'clamp(1rem, 2vw, 1.2rem)', 
+                  color: '#003d7a', 
+                  marginBottom: '0.5rem',
+                }}>
+                  {award.title}
+                </h3>
+                <p style={{ 
+                  color: '#d4af37', 
+                  fontWeight: '600', 
+                  marginBottom: '0.5rem',
+                  fontSize: 'clamp(0.9rem, 2vw, 1rem)',
+                }}>
+                  {award.year}
+                </p>
+                <p style={{ 
+                  color: '#6b7280', 
+                  fontSize: 'clamp(0.8rem, 1.8vw, 0.9rem)',
+                }}>
+                  {award.organization}
+                </p>
               </div>
+            ))}
+          </div>
+        </section>
 
-              <div style={styles.contactCard}
-                onMouseEnter={e => {
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.2)';
-                  e.currentTarget.style.transform = 'translateY(-10px)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-                  e.currentTarget.style.transform = 'translateY(0)';
-                }}
-              >
-                <Shield size={32} color="#d4af37" style={{ marginBottom: '1rem' }} />
-                <h3 style={{ fontSize: '1.3rem', marginBottom: '1rem' }}>License</h3>
-                <p>0207Ε70000991201</p>
-              </div>
-            </div>
-
-            <div style={{
-              marginTop: '4rem',
-              textAlign: 'center',
-              background: 'rgba(255,255,255,0.1)',
-              backdropFilter: 'blur(20px)',
-              borderRadius: '24px',
-              padding: '2rem',
-              border: '1px solid rgba(255,255,255,0.2)'
-            }}>
-              <p style={{ fontSize: '1.2rem', marginBottom: '1.5rem' }}>
-                Ready to create unforgettable memories?
-              </p>
-              <button style={{
-                background: 'linear-gradient(135deg, #d4af37, #f4d03f)',
-                color: '#1a1a1a',
-                padding: '1rem 2.5rem',
-                borderRadius: '50px',
-                border: 'none',
-                fontSize: '1.1rem',
-                fontWeight: '600',
-                cursor: 'pointer',
-                transition: 'all 0.4s ease',
-                boxShadow: '0 10px 30px rgba(212, 175, 55, 0.4)',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.5rem'
-              }}
+        {/* CTA Section */}
+        <section style={{ ...styles.section, ...styles.ctaSection }}>
+          <FloatingElements count={15} color="rgba(255, 255, 255, 0.1)" />
+          
+          <h2 style={{ ...styles.sectionTitle, color: '#ffffff' }}>
+            Ready to Experience the Magic?
+          </h2>
+          <p style={{ 
+            ...styles.sectionSubtitle, 
+            color: 'rgba(255,255,255,0.8)',
+            fontSize: 'clamp(1.1rem, 2.5vw, 1.3rem)',
+          }}>
+            Join thousands of satisfied guests who have discovered the beauty of the Saronic Gulf with us
+          </p>
+          
+          <div style={{ 
+            display: 'flex', 
+            gap: '1rem', 
+            justifyContent: 'center',
+            flexWrap: 'wrap',
+            marginTop: '2rem',
+          }}>
+            <button 
+              style={styles.ctaButton}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-5px) scale(1.05)';
-                e.currentTarget.style.boxShadow = '0 15px 40px rgba(212, 175, 55, 0.6)';
+                e.currentTarget.style.boxShadow = '0 15px 40px rgba(212, 175, 55, 0.5)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0) scale(1)';
                 e.currentTarget.style.boxShadow = '0 10px 30px rgba(212, 175, 55, 0.4)';
               }}
-              >
-                Book Your Cruise Now <ArrowRight size={20} />
-              </button>
-            </div>
+            >
+              <Ship size={20} />
+              Explore Our Fleet
+            </button>
+            <button 
+              style={{
+                ...styles.ctaButton,
+                background: 'rgba(255,255,255,0.1)',
+                color: '#ffffff',
+                border: '2px solid rgba(255,255,255,0.3)',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = 'translateY(-5px) scale(1.05)';
+                e.currentTarget.style.background = 'rgba(255,255,255,0.2)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
+              }}
+            >
+              <Calendar size={20} />
+              Book Your Cruise
+            </button>
           </div>
         </section>
+
+        {/* Team Member Modal */}
+        {activeTeamMember && (
+          <div style={styles.modal} onClick={() => setActiveTeamMember(null)}>
+            <div style={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+              <button 
+                style={styles.closeButton}
+                onClick={() => setActiveTeamMember(null)}
+                onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.1)'}
+                onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+              >
+                <X size={20} color="#1a1a1a" />
+              </button>
+              
+              <div style={{ textAlign: 'center' }}>
+                <img 
+                  src={activeTeamMember.image} 
+                  alt={activeTeamMember.name}
+                  style={{
+                    width: '150px',
+                    height: '150px',
+                    borderRadius: '50%',
+                    objectFit: 'cover',
+                    marginBottom: '1.5rem',
+                    boxShadow: '0 15px 40px rgba(0, 61, 122, 0.2)',
+                  }}
+                />
+                <h3 style={{ 
+                  fontSize: '1.8rem', 
+                  color: '#003d7a', 
+                  marginBottom: '0.5rem',
+                }}>
+                  {activeTeamMember.name}
+                </h3>
+                <p style={{ 
+                  color: '#d4af37', 
+                  fontWeight: '600', 
+                  marginBottom: '1.5rem',
+                  fontSize: '1.2rem',
+                }}>
+                  {activeTeamMember.role}
+                </p>
+                <p style={{ 
+                  color: '#6b7280', 
+                  lineHeight: '1.7', 
+                  marginBottom: '2rem',
+                  fontSize: '1.1rem',
+                }}>
+                  {activeTeamMember.bio}
+                </p>
+                
+                <div style={{ marginBottom: '2rem' }}>
+                  <h4 style={{ color: '#003d7a', marginBottom: '1rem' }}>Specialties</h4>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', justifyContent: 'center' }}>
+                    {activeTeamMember.specialties.map((specialty, i) => (
+                      <span 
+                        key={i}
+                        style={{
+                          background: 'linear-gradient(135deg, #0066cc, #003d7a)',
+                          color: '#ffffff',
+                          padding: '0.5rem 1rem',
+                          borderRadius: '50px',
+                          fontSize: '0.9rem',
+                          fontWeight: '500',
+                        }}
+                      >
+                        {specialty}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                
+                <button 
+                  style={{
+                    background: 'linear-gradient(135deg, #d4af37, #f4d03f)',
+                    color: '#1a1a1a',
+                    padding: '0.75rem 2rem',
+                    borderRadius: '50px',
+                    border: 'none',
+                    fontSize: '1rem',
+                    fontWeight: '600',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                  }}
+                  onClick={() => setActiveTeamMember(null)}
+                  onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
+                  onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                >
+                  <Coffee size={18} style={{ marginRight: '0.5rem' }} />
+                  Let's Connect
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Video Modal */}
+        {videoModalOpen && (
+          <div style={styles.modal} onClick={() => setVideoModalOpen(false)}>
+            <button 
+              style={{
+                position: 'absolute',
+                top: '2rem',
+                right: '2rem',
+                background: 'linear-gradient(135deg, #d4af37, #f4d03f)',
+                border: 'none',
+                color: '#1a1a1a',
+                padding: '1rem',
+                borderRadius: '50%',
+                cursor: 'pointer',
+                boxShadow: '0 10px 30px rgba(212, 175, 55, 0.4)',
+                transition: 'all 0.3s ease',
+              }}
+              onClick={() => setVideoModalOpen(false)}
+              onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.1)'}
+              onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+            >
+              <X size={24} />
+            </button>
+            <video 
+              style={{
+                width: '85%',
+                maxWidth: '1000px',
+                borderRadius: '20px',
+                boxShadow: '0 20px 60px rgba(0, 102, 204, 0.3)',
+                border: '2px solid rgba(212, 175, 55, 0.3)',
+              }}
+              controls
+              autoPlay
+              src="/hero.mp4"
+            />
+          </div>
+        )}
       </div>
     </>
   );
 };
 
-export default AboutUsPage;
+export default AboutPage;
