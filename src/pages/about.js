@@ -453,36 +453,7 @@ const AboutPage = () => {
     }
   ];
 
-  const team = [
-    {
-      name: "Captain Dimitrios Kostas",
-      role: "Founder & Captain",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400",
-      bio: "20+ years of maritime experience in the Aegean Sea",
-      specialties: ["Navigation", "Safety", "Local Waters"]
-    },
-    {
-      name: "Maria Papadopoulos",
-      role: "Operations Manager",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400",
-      bio: "Expert in hospitality and cruise operations",
-      specialties: ["Guest Services", "Operations", "Quality Control"]
-    },
-    {
-      name: "Nikos Alexandros",
-      role: "Chief Engineer",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400",
-      bio: "Marine engineer ensuring vessel performance",
-      specialties: ["Engineering", "Maintenance", "Safety Systems"]
-    },
-    {
-      name: "Sofia Georgiou",
-      role: "Guest Experience Director",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400",
-      bio: "Creating memorable experiences for every guest",
-      specialties: ["Guest Relations", "Event Planning", "Hospitality"]
-    }
-  ];
+  
 
   const timeline = [
     {
@@ -825,7 +796,7 @@ const AboutPage = () => {
           </div>
         </section>
 
-        {/* Team Section */}
+        {/* Team Section 
         <section style={{ ...styles.section, ...styles.teamSection }}>
           <FloatingElements count={12} color="rgba(0, 102, 204, 0.08)" />
           
@@ -908,7 +879,7 @@ const AboutPage = () => {
               </div>
             ))}
           </div>
-        </section>
+        </section> */}
 
         {/* Timeline Section */}
         <section style={{ ...styles.section, ...styles.timelineSection }}>
