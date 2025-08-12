@@ -152,11 +152,8 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { icon: <Facebook size={20} />, url: '#', name: 'Facebook' },
-    { icon: <Instagram size={20} />, url: '#', name: 'Instagram' },
-    { icon: <Twitter size={20} />, url: '#', name: 'Twitter' },
-    { icon: <Youtube size={20} />, url: '#', name: 'Youtube' },
-    { icon: <Linkedin size={20} />, url: '#', name: 'LinkedIn' }
+   { icon: <Instagram size={16} />, url: 'https://www.instagram.com/saronicdreamcruise' },
+      { icon: <Youtube size={16} />, url: 'https://www.youtube.com/@CRUISEINATHENS' }
   ];
 
   return (

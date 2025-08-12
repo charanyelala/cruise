@@ -4,7 +4,7 @@ import {
   Facebook, Instagram, Twitter, Youtube, Linkedin,
   ChevronRight, Send, Clock, Calendar, Star,
   Award, Shield, Users, Waves, Ship, Compass,
-  ArrowUpRight, Heart, Globe, ChevronDown
+  ArrowUpRight, Heart, Globe, ChevronDown, 
 } from 'lucide-react';
 
 const Header = ({ currentPage = 'home' }) => {
@@ -65,10 +65,10 @@ const Header = ({ currentPage = 'home' }) => {
   ];
 
   const socialLinks = [
-    { icon: <Facebook size={16} />, url: '#' },
-    { icon: <Instagram size={16} />, url: '#' },
-    { icon: <Twitter size={16} />, url: '#' },
-    { icon: <Youtube size={16} />, url: '#' }
+    
+
+    { icon: <Instagram size={16} />, url: 'https://www.instagram.com/saronicdreamcruise' },
+    { icon: <Youtube size={16} />, url: 'https://www.youtube.com/@CRUISEINATHENS' }
   ];
 
   const handleNavigation = (link) => {

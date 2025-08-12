@@ -50,19 +50,20 @@ const FleetPage = () => {
       alignItems: 'center',
       justifyContent: 'center',
     },
-    heroBackground: {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
-      backgroundImage: 'url("https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80")',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundAttachment: 'fixed',
-      transform: `translateY(${scrollY * 0.5}px)`,
-      transition: 'transform 0.1s ease-out',
-    },
+   heroBackground: {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  width: '100%',
+  height: '100%',
+  backgroundImage: 'url("/images/ship11.jpeg")',
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  backgroundAttachment: 'fixed',
+  transform: `translateY(${scrollY * 0.5}px)`,
+  transition: 'transform 0.1s ease-out',
+},
+
     heroOverlay: {
       position: 'absolute',
       top: 0,
@@ -447,30 +448,11 @@ const FleetPage = () => {
   `;
 
   const yachts = [
-    {
-      name: "Angelique",
-      type: "Motor Yacht",
-      image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800",
-      specs: [
-        { icon: <Navigation size={24} />, label: "Length", value: "70ft", detail: "(24m)" },
-        { icon: <Users size={24} />, label: "Sailing Guests", value: "49", detail: "passengers" },
-        { icon: <Zap size={24} />, label: "Engine", value: "2 x 480hp", detail: "Twin engines" },
-        { icon: <Fuel size={24} />, label: "Fuel Type", value: "Diesel", detail: "Efficient" },
-        { icon: <Gauge size={24} />, label: "Consumption", value: "40 L/hr", detail: "Optimal" },
-        { icon: <Ship size={24} />, label: "Max Speed", value: "12 knots", detail: "Cruise speed" },
-        { icon: <Bed size={24} />, label: "Cabins", value: "4", detail: "Private rooms" },
-        { icon: <Bath size={24} />, label: "Bathrooms", value: "4", detail: "Full facilities" },
-        { icon: <ChefHat size={24} />, label: "Kitchens", value: "1", detail: "Professional" },
-        { icon: <Crown size={24} />, label: "Sleeps", value: "8", detail: "Overnight guests" },
-        { icon: <Anchor size={24} />, label: "Crew", value: "4", detail: "Professional" }
-      ],
-      highlights: ["Largest yacht in our fleet", "Premium amenities", "Spacious deck areas", "Professional crew"],
-      color: "#0066cc"
-    },
+    
     {
       name: "Martika",
       type: "Motor Yacht",
-      image: "https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=800",
+      image: "/images/ship11.jpeg",
       specs: [
         { icon: <Navigation size={24} />, label: "Length", value: "62ft", detail: "(21m)" },
         { icon: <Users size={24} />, label: "Sailing Guests", value: "49", detail: "passengers" },
@@ -490,12 +472,16 @@ const FleetPage = () => {
   ];
 
   const galleryImages = [
-    { id: 1, src: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600", title: "Angelique Exterior", yacht: "Angelique" },
-    { id: 2, src: "https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=600", title: "Martika Deck", yacht: "Martika" },
-    { id: 3, src: "https://images.unsplash.com/photo-1571406753518-9a3ba1c4bb0d?w=600", title: "Luxury Interior", yacht: "Both" },
-    { id: 4, src: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600", title: "Sunset Cruise", yacht: "Both" },
-    { id: 5, src: "https://images.unsplash.com/photo-1544550581-5ac5462be3e3?w=600", title: "Crystal Waters", yacht: "Both" },
-    { id: 6, src: "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600", title: "Dining Area", yacht: "Both" }
+    { id: 1, src: "/images/ship1.jpeg", title: "Angelique Exterior", yacht: "Angelique" },
+    { id: 2, src: "/images/ship6.jpeg", title: "Martika Deck", yacht: "Martika" },
+    { id: 3, src: "/images/ship7.jpeg", title: "Luxury Interior", yacht: "Both" },
+    { id: 4, src: "/images/ship8.jpeg", title: "Sunset Cruise", yacht: "Both" },
+    { id: 5, src: "/images/ship9.jpeg", title: "Crystal Waters", yacht: "Both" },
+    { id: 6, src: "/images/ship10.jpeg", title: "Dining Area", yacht: "Both" },
+    { id: 7, src: "/images/ship12.jpeg", title: "Dining Area", yacht: "Both" },
+    { id: 8, src: "/images/ship13.jpeg", title: "Dining Area", yacht: "Both" },
+    { id: 9, src: "/images/ship14.jpeg", title: "Dining Area", yacht: "Both" },
+    { id: 10, src: "/images/ship15.jpeg", title: "Dining Area", yacht: "Both" },
   ];
 
   const comparisonData = [
@@ -777,7 +763,7 @@ const FleetPage = () => {
           </div>
         </section>
 
-        {/* Comparison Section */}
+        {/* Comparison Section 
         <section style={{ ...styles.section, ...styles.comparisonSection }}>
           <FloatingElements count={20} color="rgba(255, 255, 255, 0.1)" />
           
@@ -825,7 +811,7 @@ const FleetPage = () => {
               </div>
             ))}
           </div>
-        </section>
+        </section> */}
 
         {/* Gallery Section */}
         <section style={{ ...styles.section, ...styles.gallerySection }}>

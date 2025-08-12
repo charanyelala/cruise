@@ -477,24 +477,24 @@ const CruiseHomepage = () => {
     { id: 2, src: '/images/ship1.jpeg', category: 'yacht', title: 'Modern Fleet', description: 'State-of-the-art vessels' },
     { id: 3, src: '/images/ship2.jpeg', category: 'yacht', title: 'Elegant Design', description: 'Sophisticated interiors' },
     { id: 4, src: '/images/ship3.jpeg', category: 'yacht', title: 'Premium Vessels', description: 'World-class amenities' },
-    { id: 5, src: '/images/ship4.jpeg', category: 'yacht', title: 'Spacious Decks', description: 'Room to relax and enjoy' },
-    { id: 6, src: '/images/ship5.jpeg', category: 'yacht', title: 'Luxury Interiors', description: 'Comfort and style combined' },
+    { id: 5, src: '/images/ship11.jpeg', category: 'yacht', title: 'Spacious Decks', description: 'Room to relax and enjoy' },
+    { id: 6, src: '/images/ship12.jpeg', category: 'yacht', title: 'Luxury Interiors', description: 'Comfort and style combined' },
     
     // Destination category (using generic cruise destination images)
-    { id: 7, src: '/images/destination1.jpeg', category: 'destination', title: 'Santorini Views', description: 'Breathtaking island scenery' },
-    { id: 8, src: '/images/destination2.jpeg', category: 'destination', title: 'Crystal Waters', description: 'Perfect swimming spots' },
-    { id: 9, src: '/images/destination3.jpeg', category: 'destination', title: 'Hidden Coves', description: 'Secret paradise locations' },
-    { id: 10, src: '/images/destination4.jpeg', category: 'destination', title: 'Coastal Beauty', description: 'Stunning Greek coastlines' },
-    { id: 11, src: '/images/destination5.jpeg', category: 'destination', title: 'Island Hopping', description: 'Multiple destinations' },
-    { id: 12, src: '/images/destination6.jpeg', category: 'destination', title: 'Sunset Views', description: 'Magical golden hours' },
+    { id: 7, src: '/images/aegina-1.jpg', category: 'destination', title: 'Santorini Views', description: 'Breathtaking island scenery' },
+    { id: 8, src: '/images/aegina-2.jpg', category: 'destination', title: 'Crystal Waters', description: 'Perfect swimming spots' },
+    { id: 9, src: '/images/aegina-4.jpg', category: 'destination', title: 'Hidden Coves', description: 'Secret paradise locations' },
+    { id: 10, src: '/images/agistri-1.jpg', category: 'destination', title: 'Coastal Beauty', description: 'Stunning Greek coastlines' },
+    { id: 11, src: '/images/agistri-2.jpg', category: 'destination', title: 'Island Hopping', description: 'Multiple destinations' },
+    { id: 12, src: '/images/agistri-4.jpg', category: 'destination', title: 'Sunset Views', description: 'Magical golden hours' },
     
     // Experience category
-    { id: 13, src: '/images/experience1.jpeg', category: 'experience', title: 'Gourmet Dining', description: 'Exceptional cuisine at sea' },
-    { id: 14, src: '/images/experience2.jpeg', category: 'experience', title: 'Water Activities', description: 'Swimming and snorkeling' },
-    { id: 15, src: '/images/experience3.jpeg', category: 'experience', title: 'Relaxation', description: 'Peaceful moments on deck' },
-    { id: 16, src: '/images/experience4.jpeg', category: 'experience', title: 'Entertainment', description: 'Music and celebration' },
-    { id: 17, src: '/images/experience5.jpeg', category: 'experience', title: 'Photography', description: 'Capture perfect moments' },
-    { id: 18, src: '/images/experience6.jpeg', category: 'experience', title: 'Sunset Cruising', description: 'Evening magic at sea' },
+    { id: 13, src: '/images/exp1.jpeg', category: 'experience', title: 'Gourmet Dining', description: 'Exceptional cuisine at sea' },
+    { id: 14, src: '/images/exp2.jpeg', category: 'experience', title: 'Water Activities', description: 'Swimming and snorkeling' },
+    { id: 15, src: '/images/exp3.jpeg', category: 'experience', title: 'Relaxation', description: 'Peaceful moments on deck' },
+    { id: 16, src: '/images/exp4.jpeg', category: 'experience', title: 'Entertainment', description: 'Music and celebration' },
+    { id: 17, src: '/images/exp5.jpeg', category: 'experience', title: 'Photography', description: 'Capture perfect moments' },
+    { id: 18, src: '/images/exp6.jpeg', category: 'experience', title: 'Sunset Cruising', description: 'Evening magic at sea' },
   ];
 
   const filteredImages = activeGalleryTab === 'all' 
@@ -528,20 +528,20 @@ const CruiseHomepage = () => {
   const adventures = [
     {
       title: "Destinations",
-      description: "Explore breathtaking Greek islands including Santorini, Mykonos, Hydra, Aegina, and Poros. Each destination offers unique beauty, culture, and unforgettable experiences.",
-      image: "/images/destination1.jpeg",
-      highlights: ["5 Unique Islands", "Cultural Experiences", "Photo Opportunities"]
+      description: "Explore breathtaking Greek Saronic Islands. Each destination offers unique beauty, culture, and unforgettable experiences.",
+      image: "/images/aegina-1.jpg",
+      highlights: ["Islands", "Cultural Experiences", "Photo Opportunities"]
     },
     {
       title: "Our Fleet",
       description: "Choose from our selection of luxury yachts, modern catamarans, comfortable motor boats, and elegant sailing yachts. All vessels feature premium amenities and safety equipment.",
-      image: "/images/ship.jpeg",
+      image: "/images/ship11.jpeg",
       highlights: ["Luxury Yachts", "Modern Catamarans", "Safety Certified"]
     },
     {
       title: "Cruise Types",
       description: "From relaxing day cruises to romantic sunset voyages and exclusive private charters. We offer various cruise experiences tailored to create your perfect maritime adventure.",
-      image: "/images/experience1.jpeg",
+      image: "/images/ship12.jpeg",
       highlights: ["Day Cruises", "Sunset Cruises", "Private Charters"]
     }
   ];
