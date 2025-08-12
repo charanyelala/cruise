@@ -234,11 +234,11 @@ const Footer = () => {
               <div style={{ marginBottom: '1rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
                   <MapPin size={18} color="#d4af37" />
-                  <span>Marina Alimos, Athens 17455, Greece</span>
+                  <span>Marina Zeas Pireaus, Athens 17455, Greece</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
                   <Phone size={18} color="#d4af37" />
-                  <span>+30 210 123 4567</span>
+                  <span>+30 698 492 2197 </span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
                   <Mail size={18} color="#d4af37" />

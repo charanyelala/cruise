@@ -59,9 +59,9 @@ const Header = ({ currentPage = 'home' }) => {
   ];
 
   const contactInfo = [
-    { icon: <Phone size={14} />, text: '+30 210 123 4567' },
+    { icon: <Phone size={14} />, text: '+30 698 492 2197' },
     { icon: <Mail size={14} />, text: 'info@saronicdreamcruise.com' },
-    { icon: <MapPin size={14} />, text: 'Marina Alimos, Athens' }
+    { icon: <MapPin size={14} />, text: 'Marina Zeas Pireaus, Athens' }
   ];
 
   const socialLinks = [
