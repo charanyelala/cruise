@@ -15,6 +15,13 @@ const CruiseHomepage = () => {
   const [scrollY, setScrollY] = useState(0);
   const [currentSlides, setCurrentSlides] = useState({ yacht: 0, destination: 0, experience: 0, all: 0 });
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+    const handleNavigation = (link) => {
+    // Close mobile menu when navigating
+  
+    // Navigate to the page
+    window.location.href = link;
+  };
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -686,19 +693,21 @@ const CruiseHomepage = () => {
               experience the timeless beauty of the Saronic Gulf and its serene waters.
             </p>
             <div style={styles.heroCTA}>
-              <button 
-                style={styles.primaryButton}
-                onMouseEnter={e => {
-                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.08)';
-                  e.currentTarget.style.boxShadow = '0 20px 50px rgba(212, 175, 55, 0.6)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                  e.currentTarget.style.boxShadow = '0 10px 30px rgba(212, 175, 55, 0.4)';
-                }}
-              >
-                Explore Cruises <ArrowRight size={20} />
-              </button>
+<button 
+  style={styles.primaryButton}
+  onClick={() => handleNavigation('/cruises')}
+  onMouseEnter={e => {
+    e.currentTarget.style.transform = 'translateY(-8px) scale(1.08)';
+    e.currentTarget.style.boxShadow = '0 20px 50px rgba(212, 175, 55, 0.6)';
+  }}
+  onMouseLeave={e => {
+    e.currentTarget.style.transform = 'translateY(0) scale(1)';
+    e.currentTarget.style.boxShadow = '0 10px 30px rgba(212, 175, 55, 0.4)';
+  }}
+>
+  Explore Cruises <ArrowRight size={20} />
+</button>
+
               <button 
                 style={styles.secondaryButton}
                 onClick={() => setVideoModalOpen(true)}
