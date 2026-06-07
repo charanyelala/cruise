@@ -8,6 +8,7 @@ import About from './pages/about';
 import CruiseDetails from './pages/cruises'; // 👈 Import your cruise page
 import Destinations from './pages/destinations'; // 👈 Import your destinations page
 import Fleet from './pages/fleet'; // 👈 Import your fleet page
+import BookingPage from './pages/booking';
 import './App.css';
 
 function App() {
@@ -168,6 +169,8 @@ function App() {
             </div>
           } />
           
+          <Route path="/booking" element={<BookingPage />} />
+
           {/* 👈 Contact page placeholder */}
           <Route path="/contact" element={
             <div style={{

@@ -615,7 +615,7 @@ const Header = ({ currentPage = 'home' }) => {
             {/* CTA Buttons */}
             <div className="cta-buttons">
               {/* Desktop Book Button */}
-              <button className="book-button" onClick={() => handleNavigation('/contact')}>
+              <button className="book-button" onClick={() => handleNavigation('/booking')}>
                 Book Now <ArrowUpRight size={18} />
               </button>
               
@@ -702,7 +702,7 @@ const Header = ({ currentPage = 'home' }) => {
             ))}
             <button 
               className="mobile-book-button"
-              onClick={() => handleNavigation('/contact')}
+              onClick={() => handleNavigation('/booking')}
             >
               Book Your Cruise <ArrowUpRight size={20} />
             </button>
