@@ -1176,7 +1176,7 @@ const CruiseDetailsPage = () => {
               Book Your Cruise Today
             </button>
             <a 
-              href="tel:+306984922197"
+              href="tel:+306983140472"
               style={{
                 ...styles.ctaButton,
                 background: 'rgba(255,255,255,0.1)',
@@ -1200,7 +1200,7 @@ const CruiseDetailsPage = () => {
           <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <Phone size={20} />
-              <span>+30 6984922197</span>
+              <span>+30 698 3140472</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <Mail size={20} />
@@ -1233,7 +1233,7 @@ const CruiseDetailsPage = () => {
                 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                   <a 
-                    href="tel:+306984922197"
+                    href="tel:+306983140472"
                     style={{
                       ...styles.ctaButton,
                       background: 'linear-gradient(135deg, #0066cc, #003d7a)',
@@ -1242,7 +1242,7 @@ const CruiseDetailsPage = () => {
                       justifyContent: 'center'
                     }}
                   >
-                    <Phone size={20} /> Call +30 6984922197
+                    <Phone size={20} /> Call +30 698 3140472
                   </a>
                   <a 
                     href="mailto:info@saronicdreamcruise.com"

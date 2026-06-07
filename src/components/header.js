@@ -58,7 +58,7 @@ const Header = ({ currentPage = 'home' }) => {
   ];
 
   const contactInfo = [
-    { icon: <Phone size={14} />, text: '+30 698 492 2197' },
+    { icon: <Phone size={14} />, text: '+30 698 3140472' },
     { icon: <Mail size={14} />, text: 'info@saronicdreamcruise.com' },
     { icon: <MapPin size={14} />, text: 'Marina Zeas Pireaus, Athens' }
   ];

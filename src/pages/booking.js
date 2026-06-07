@@ -512,8 +512,8 @@ const BookingPage = () => {
             <div className="bk-cta-banner">
               <h3>Prefer to book by phone?</h3>
               <p>Our team is available daily 08:00 – 20:00 Athens time.</p>
-              <a className="bk-cta-tel" href="tel:+306984922197">
-                <Phone size={18} /> +30 698 492 2197
+              <a className="bk-cta-tel" href="tel:+306983140472">
+                <Phone size={18} /> +30 698 3140472
               </a>
             </div>
           </div>
@@ -569,8 +569,8 @@ const BookingPage = () => {
                 <hr className="bk-widget-divider" />
 
                 <div className="bk-contact-links">
-                  <a className="bk-contact-link" href="tel:+306984922197">
-                    <Phone className="bk-contact-icon" size={14} /> +30 698 492 2197
+                  <a className="bk-contact-link" href="tel:+306983140472">
+                    <Phone className="bk-contact-icon" size={14} /> +30 698 3140472
                   </a>
                   <a className="bk-contact-link" href="mailto:info@saronicdreamcruise.com">
                     <Mail className="bk-contact-icon" size={14} /> info@saronicdreamcruise.com

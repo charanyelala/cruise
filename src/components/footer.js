@@ -237,7 +237,7 @@ const Footer = () => {
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
                   <Phone size={18} color="#d4af37" />
-                  <span>+30 698 492 2197 </span>
+                  <span>+30 698 3140472</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
                   <Mail size={18} color="#d4af37" />

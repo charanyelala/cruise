@@ -188,7 +188,7 @@ function App() {
               <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>📞 Contact Us</h1>
               <div style={{ fontSize: '1.2rem', marginBottom: '2rem' }}>
                 <p>📧 info@saronicdreamcruise.com</p>
-                <p>📱 +30 6984922197</p>
+                <p>📱 +30 698 3140472</p>
                 <p>📍 Marina Zeas 18536, Piraeus, Greece</p>
               </div>
               <a href="/cruises" style={{
