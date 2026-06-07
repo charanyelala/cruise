@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
   Star, Shield, Clock, Users, Check, ChevronDown,
-  Phone, Mail, MapPin, Anchor, Waves, Award, Calendar
+  Phone, Mail, MapPin, Anchor, Award, Calendar
 } from 'lucide-react';
 
 const BOKUN_WIDGET_ID = 'bokun_83425495_0f98_4346_9c9c_aa3f202c749a';

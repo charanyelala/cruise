@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { 
+import React, { useState, useEffect } from 'react';
+import {
   ChevronDown, ChevronUp, ArrowRight, Shield, Award, Compass, DollarSign,
-  Star, Users, Clock, Calendar, Anchor, Ship, Waves, MapPin,
+  Star, Users, Anchor, MapPin,
   Play, X,
   Camera, Sparkles, Check
 } from 'lucide-react';

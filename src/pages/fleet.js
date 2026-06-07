@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { 
+import {
   Ship, Anchor, Users, Zap, Fuel, Gauge, Bed, Bath,
-  ChefHat, Crown, Star, ArrowRight, Camera, Heart,
-  Award, Shield, Compass, Navigation, Eye, Sparkles,
-  Clock, MapPin, CheckCircle, Info, Play, X, ChevronLeft, 
-  ChevronRight, Target, Flag, ThumbsUp
+  ChefHat, Crown, Star, ArrowRight, Camera,
+  Award, Shield, Navigation, Eye,
+  Play, X, ChevronLeft, ChevronRight
 } from 'lucide-react';
 
 const FleetPage = () => {
@@ -484,17 +483,6 @@ const FleetPage = () => {
     { id: 10, src: "/images/ship15.jpeg", title: "Dining Area", yacht: "Both" },
   ];
 
-  const comparisonData = [
-    { feature: "Length", angelique: "70ft (24m)", martika: "62ft (21m)" },
-    { feature: "Engine Power", angelique: "2 x 480hp", martika: "2 x 280hp" },
-    { feature: "Guests", angelique: "49", martika: "49" },
-    { feature: "Cabins", angelique: "4", martika: "4" },
-    { feature: "Bathrooms", angelique: "4", martika: "4" },
-    { feature: "Max Speed", angelique: "12 knots", martika: "12 knots" },
-    { feature: "Fuel Consumption", angelique: "40 L/hr", martika: "40 L/hr" },
-    { feature: "Crew", angelique: "4", martika: "4" },
-    { feature: "Sleeps", angelique: "8", martika: "8" }
-  ];
 
   const openLightbox = (index) => {
     setCurrentImage(index);

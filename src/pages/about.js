@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Anchor, Award, Shield, Users, Heart, Globe, Compass, Ship,
-  Star, Clock, MapPin, Phone, Mail, ChevronRight, ArrowRight,
-  Camera, Waves, Calendar, Trophy, CheckCircle, Play, X,
-  Sparkles, Target, Eye, Flag, Zap, ThumbsUp, Coffee
+import {
+  Anchor, Award, Shield, Users, Heart, Ship,
+  Calendar, Play, X,
+  Sparkles, Coffee
 } from 'lucide-react';
 
 const AboutPage = () => {
@@ -455,60 +454,6 @@ const AboutPage = () => {
 
   
 
-  const timeline = [
-    {
-      year: "2014",
-      title: "Founded",
-      description: "Cruise in Athens was established with a vision to share the beauty of the Saronic Gulf with travelers from around the world."
-    },
-    {
-      year: "2016",
-      title: "Fleet Expansion",
-      description: "Added luxury catamarans to our fleet, expanding our capacity and comfort offerings for larger groups."
-    },
-    {
-      year: "2019",
-      title: "Award Recognition",
-      description: "Received the 'Best Maritime Experience' award from the Greek Tourism Organization."
-    },
-    {
-      year: "2021",
-      title: "Sustainability Initiative",
-      description: "Launched our eco-friendly program, implementing sustainable practices across all operations."
-    },
-    {
-      year: "2024",
-      title: "10 Years Strong",
-      description: "Celebrating a decade of excellence with over 5,000 satisfied guests and 50+ unique destinations."
-    }
-  ];
-
-  const awards = [
-    {
-      icon: <Trophy size={32} />,
-      title: "Best Maritime Experience",
-      year: "2023",
-      organization: "Greek Tourism Awards"
-    },
-    {
-      icon: <Star size={32} />,
-      title: "Excellence in Service",
-      year: "2022",
-      organization: "Travel & Leisure"
-    },
-    {
-      icon: <Shield size={32} />,
-      title: "Safety Excellence",
-      year: "2023",
-      organization: "Maritime Safety Authority"
-    },
-    {
-      icon: <Globe size={32} />,
-      title: "Eco-Friendly Operator",
-      year: "2023",
-      organization: "Green Tourism Board"
-    }
-  ];
 
   const FloatingElements = ({ count = 20, color = "rgba(0, 102, 204, 0.1)" }) => (
     <div style={styles.floatingElements}>

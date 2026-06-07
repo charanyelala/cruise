@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { 
-  Anchor, Menu, X, Phone, Mail, MapPin, 
-  Facebook, Instagram, Twitter, Youtube, Linkedin,
-  ChevronRight, Send, Clock, Calendar, Star,
-  Award, Shield, Users, Waves, Ship, Compass,
-  ArrowUpRight, Heart, Globe, ChevronDown
+import React, { useState } from 'react';
+import {
+  Anchor, Phone, Mail, MapPin,
+  Instagram, Youtube,
+  ChevronRight, Send, Clock, Star,
+  Award, Shield
 } from 'lucide-react';
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -210,9 +209,9 @@ const Footer = () => {
           <div style={footerStyles.column}>
             <h3 style={footerStyles.columnTitle}>Quick Links</h3>
             {['Our Fleet', 'Destinations', 'Day Cruises', 'Private Charters', 'Corporate Events', 'Special Occasions'].map((item, index) => (
-              <a
+              <span
                 key={index}
-                style={footerStyles.link}
+                style={{ ...footerStyles.link, cursor: 'pointer' }}
                 onMouseEnter={e => {
                   e.currentTarget.style.color = '#d4af37';
                   e.currentTarget.style.paddingLeft = '0.5rem';
@@ -223,7 +222,7 @@ const Footer = () => {
                 }}
               >
                 <ChevronRight size={16} /> {item}
-              </a>
+              </span>
             ))}
           </div>
 
@@ -329,9 +328,9 @@ const Footer = () => {
             <div>
               <p style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.9rem' }}>
                 © 2025 SARONIC DREAM CRUISE. All rights reserved. | 
-                <a style={{ color: '#d4af37', marginLeft: '0.5rem', marginRight: '0.5rem' }}>Privacy Policy</a> | 
-                <a style={{ color: '#d4af37', marginLeft: '0.5rem', marginRight: '0.5rem' }}>Terms of Service</a> | 
-                <a style={{ color: '#d4af37', marginLeft: '0.5rem' }}>Cancellation Policy</a>
+                <span style={{ color: '#d4af37', marginLeft: '0.5rem', marginRight: '0.5rem' }}>Privacy Policy</span> |
+                <span style={{ color: '#d4af37', marginLeft: '0.5rem', marginRight: '0.5rem' }}>Terms of Service</span> |
+                <span style={{ color: '#d4af37', marginLeft: '0.5rem' }}>Cancellation Policy</span>
               </p>
             </div>
             <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>

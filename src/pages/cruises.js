@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { 
+import {
   Clock, Users, Calendar, Star, MapPin, Ship, Waves,
-  CheckCircle, X, Info, Camera, Heart, Anchor, 
+  CheckCircle, X, Info, Anchor,
   ArrowRight, Coffee, Utensils, Fish, Car,
-  AlertCircle, Phone, Mail, CreditCard, Globe,
-  Mountain, TreePine, Sun, Wind, Navigation,
-  Timer, Eye, Bike, ShoppingBag, Sparkles, Shirt,
-  Play, ChevronDown, Award, Shield, Target, Flag,
-  Zap, ThumbsUp, Euro, Compass
+  Phone, Mail, CreditCard, Globe,
+  Mountain, TreePine, Sun, Navigation,
+  ShoppingBag, Sparkles, Shirt,
+  ChevronDown, Shield
 } from 'lucide-react';
 
 const CruiseDetailsPage = () => {
@@ -15,7 +14,7 @@ const CruiseDetailsPage = () => {
   const [isVisible, setIsVisible] = useState({});
   const [activeTab, setActiveTab] = useState('itinerary');
   const [showBookingModal, setShowBookingModal] = useState(false);
-  const [videoModalOpen, setVideoModalOpen] = useState(false);
+
   const [activeFaq, setActiveFaq] = useState(null);
 
   useEffect(() => {

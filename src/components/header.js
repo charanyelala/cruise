@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Anchor, Menu, X, Phone, Mail, MapPin, 
-  Facebook, Instagram, Twitter, Youtube, Linkedin,
-  ChevronRight, Send, Clock, Calendar, Star,
-  Award, Shield, Users, Waves, Ship, Compass,
-  ArrowUpRight, Heart, Globe, ChevronDown, 
+import {
+  Anchor, Menu, X, Phone, Mail, MapPin,
+  Instagram, Youtube,
+  ChevronRight,
+  ArrowUpRight, ChevronDown,
 } from 'lucide-react';
 
 const Header = ({ currentPage = 'home' }) => {

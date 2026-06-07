@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  MapPin, Camera, Heart, Star, Clock, Users, Ship, Waves,
-  TreePine, Mountain, Fish, Sun, Wind, Compass, Eye,
-  ArrowRight, Sparkles, Bike, Utensils, Anchor, Globe,
-  Award, Shield, Navigation, Timer, Calendar, Check,
-  Play, X, ChevronDown, Target, Zap, ThumbsUp, ChevronLeft,
-  ChevronRight, ExternalLink, Info
+import {
+  MapPin, Camera, Star, Clock, Users, Ship, Waves,
+  TreePine, Mountain,
+  ArrowRight, Sparkles, Utensils, Shield, Check,
+  X, ChevronLeft, ChevronRight, Info
 } from 'lucide-react';
 
 const DestinationsPage = () => {
