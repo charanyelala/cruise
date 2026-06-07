@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { 
   ChevronDown, ChevronUp, ArrowRight, Shield, Award, Compass, DollarSign,
   Star, Users, Clock, Calendar, Anchor, Ship, Waves, MapPin,
-  Play, X, ChevronLeft, ChevronRight, 
-  Camera, Heart, Globe, Sparkles, Check
+  Play, X,
+  Camera, Sparkles, Check
 } from 'lucide-react';
 
 const CruiseHomepage = () => {
@@ -47,6 +47,7 @@ const CruiseHomepage = () => {
       setCurrentTestimonial(prev => (prev + 1) % testimonials.length);
     }, 5000);
     return () => clearInterval(interval);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const styles = {
@@ -508,7 +509,6 @@ const CruiseHomepage = () => {
     ? galleryImages 
     : galleryImages.filter(img => img.category === activeGalleryTab);
 
-  const slidesPerView = 3; // Always show 3 rows
   const maxSlide = Math.max(0, Math.ceil(filteredImages.length / 3) - 1);
 
   const nextSlide = () => {
@@ -523,12 +523,6 @@ const CruiseHomepage = () => {
       ...prev,
       [activeGalleryTab]: Math.max(prev[activeGalleryTab] - 1, 0)
     }));
-  };
-
-  // Get current 3 images to display
-  const getCurrentImages = () => {
-    const startIndex = currentSlides[activeGalleryTab] * 3;
-    return filteredImages.slice(startIndex, startIndex + 3);
   };
 
   // Adventure content based on header navigation
