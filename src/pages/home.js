@@ -3,7 +3,7 @@ import {
   ChevronDown, ChevronUp, ArrowRight, Shield, Award, Compass, DollarSign,
   Star, Users, Anchor, MapPin,
   Play, X,
-  Camera, Sparkles, Check
+  Camera, Check
 } from 'lucide-react';
 
 const CruiseHomepage = () => {
@@ -489,12 +489,12 @@ const CruiseHomepage = () => {
     { id: 6, src: '/images/ship12.jpeg', category: 'yacht', title: 'Luxury Interiors', description: 'Comfort and style combined' },
     
     // Destination category (using generic cruise destination images)
-    { id: 7, src: '/images/aegina-1.jpg', category: 'destination', title: 'Santorini Views', description: 'Breathtaking island scenery' },
+    { id: 7, src: '/images/aegina-1.jpg', category: 'destination', title: 'Aegina Views', description: 'Coastal scenery and island streets' },
     { id: 8, src: '/images/aegina-2.jpg', category: 'destination', title: 'Crystal Waters', description: 'Perfect swimming spots' },
-    { id: 9, src: '/images/aegina-4.jpg', category: 'destination', title: 'Hidden Coves', description: 'Secret paradise locations' },
+    { id: 9, src: '/images/aegina-4.jpg', category: 'destination', title: 'Sheltered Coves', description: 'Quiet places along the coast' },
     { id: 10, src: '/images/agistri-1.jpg', category: 'destination', title: 'Coastal Beauty', description: 'Stunning Greek coastlines' },
     { id: 11, src: '/images/agistri-2.jpg', category: 'destination', title: 'Island Hopping', description: 'Multiple destinations' },
-    { id: 12, src: '/images/agistri-4.jpg', category: 'destination', title: 'Sunset Views', description: 'Magical golden hours' },
+    { id: 12, src: '/images/agistri-4.jpg', category: 'destination', title: 'Sunset Views', description: 'Evening light over the Saronic Gulf' },
     
     // Experience category
     { id: 13, src: '/images/exp1.jpeg', category: 'experience', title: 'Gourmet Dining', description: 'Exceptional cuisine at sea' },
@@ -529,7 +529,7 @@ const CruiseHomepage = () => {
   const adventures = [
     {
       title: "Destinations",
-      description: "Explore breathtaking Greek Saronic Islands. Each destination offers unique beauty, culture, and unforgettable experiences.",
+      description: "Explore the Saronic islands, each with its own coastline, local character, and history.",
       image: "/images/aegina-1.jpg",
       highlights: ["Islands", "Cultural Experiences", "Photo Opportunities"]
     },
@@ -557,7 +557,7 @@ const CruiseHomepage = () => {
     {
       icon: <Award size={36} color="#ffffff" />,
       title: "Expertise",
-      description: "Years of experience crafting unforgettable cruise experiences in the Aegean Sea",
+      description: "Years of experience operating day cruises in the Saronic Gulf",
       highlight: "10+ Years Experience"
     },
     {
@@ -676,11 +676,6 @@ const CruiseHomepage = () => {
           <div style={styles.videoOverlay}></div>
           
           <div style={styles.heroContent}>
-            <p style={styles.heroSubtitle}>
-              <Sparkles size={20} />
-              Yachting Adventures
-              <Sparkles size={20} />
-            </p>
             <h1 style={styles.heroTitle}>One Day Cruise<br />A Lifetime Experience</h1>
             <p style={styles.heroDescription}>
               An experience no traveler should ever miss. SARONIC DREAM CRUISE offers a truly exceptional way to 
@@ -953,7 +948,7 @@ const CruiseHomepage = () => {
           
           <h2 style={styles.sectionTitle}>Explore Our Offerings</h2>
           <p style={styles.sectionSubtitle}>
-            Discover our destinations, modern fleet, and variety of cruise experiences designed to create unforgettable memories
+            Explore our destinations, fleet, and available cruise experiences
           </p>
           
           <div style={styles.adventuresGrid}>

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {
   Anchor, Award, Shield, Users, Heart, Ship,
-  Calendar, Play, X,
-  Sparkles, Coffee
+  Calendar, Play, X, Coffee
 } from 'lucide-react';
 
 const AboutPage = () => {
@@ -443,7 +442,7 @@ const AboutPage = () => {
     {
       icon: <Award size={36} />,
       title: "Excellence",
-      description: "We strive for excellence in every detail, from our vessels to our service, ensuring unforgettable moments."
+      description: "We pay close attention to our vessels, service and every part of the guest experience."
     },
     {
       icon: <Users size={36} />,
@@ -489,12 +488,11 @@ const AboutPage = () => {
             <p style={styles.heroSubtitle}>
               <Anchor size={20} />
               <span>Our Story</span>
-              <Sparkles size={20} />
             </p>
             <h1 style={styles.heroTitle}>Cruise in Athens</h1>
             <p style={styles.heroDescription}>
               Born from a passion for the sea and a love for Greek hospitality, we've been creating 
-              unforgettable maritime adventures in the Saronic Gulf since 2014.
+              day cruises in the Saronic Gulf since 2014.
             </p>
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
               <button 

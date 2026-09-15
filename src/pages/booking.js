@@ -11,7 +11,7 @@ const BOKUN_SCRIPT_SRC =
   'https://widgets.bokun.io/assets/javascripts/apps/build/BokunWidgetsLoader.js?bookingChannelUUID=ba24b927-5d92-47f0-a17f-000c0df7085d';
 
 const highlights = [
-  { icon: <Clock size={22} />, label: 'Full Day Experience', sub: '9 AM – 7 PM' },
+  { icon: <Clock size={22} />, label: 'Full Day Experience', sub: '9 AM to 7 PM' },
   { icon: <Users size={22} />, label: 'Small Groups', sub: 'Max 20 guests' },
   { icon: <Award size={22} />, label: 'Top Rated', sub: '5★ on TripAdvisor' },
   { icon: <Shield size={22} />, label: 'Free Cancellation', sub: 'Up to 24 hrs prior' },
@@ -19,10 +19,10 @@ const highlights = [
 
 const included = [
   'Professional licensed skipper & crew',
-  'Stop at Aegina, Poros & Hydra islands',
+  'Stops at Agistri, Moni/Metopi & Aegina',
   'Swimming & snorkelling stops',
   'Onboard sun deck & shade areas',
-  'Complimentary welcome drink',
+  'Buffet-style breakfast & lunch with all-day open bar',
   'Fishing gear available on request',
   'Life jackets & safety equipment',
   'Hotel pick-up & drop-off (Athens area)',
@@ -39,7 +39,7 @@ const faqs = [
   },
   {
     q: 'Is the cruise suitable for children?',
-    a: 'Absolutely! The cruise is family-friendly. Children under 3 travel free; ages 3–12 receive a 50% discount.',
+    a: 'Absolutely! The cruise is family-friendly. Children under 3 travel free; ages 3 to 12 receive a 50% discount.',
   },
   {
     q: 'What happens if the weather is bad?',
@@ -47,7 +47,7 @@ const faqs = [
   },
   {
     q: 'Is food included?',
-    a: 'The ticket includes a welcome drink. Each island has excellent tavernas for lunch – we allow ample time to explore and dine ashore.',
+    a: 'Yes. Breakfast and lunch (buffet style) are included, along with open-bar options available throughout the day.',
   },
 ];
 
@@ -223,7 +223,7 @@ const BookingPage = () => {
           padding: 1.75rem;
         }
 
-        /* Bokun button override – match site brand */
+        /* Bokun button override to match the site brand */
         #${BOKUN_WIDGET_ID} {
           display: block !important;
           width: 100%;
@@ -415,7 +415,7 @@ const BookingPage = () => {
             </div>
             <h1>Book Your <span>Saronic Dream</span> Cruise</h1>
             <p className="bk-hero-sub">
-              Sail the Saronic Gulf — Aegina, Poros & Hydra in one unforgettable full-day voyage.
+              Sail the Saronic Gulf to Agistri, Moni/Metopi and Aegina on a full-day voyage.
             </p>
             <div className="bk-stars">
               {[1,2,3,4,5].map(i => (
@@ -444,7 +444,7 @@ const BookingPage = () => {
         {/* ── Main two-column layout ── */}
         <div className="bk-main">
 
-          {/* Left – info column */}
+          {/* Left info column */}
           <div>
             {/* What's included */}
             <div className="bk-section">
@@ -464,9 +464,9 @@ const BookingPage = () => {
               <h2 className="bk-section-title">Your Day at a Glance</h2>
               {[
                 { time: '09:00', text: 'Departure from Marina Zeas, Piraeus' },
-                { time: '10:30', text: 'Arrive Aegina — temple of Aphaia, pistachio markets' },
-                { time: '12:30', text: 'Arrive Poros — clock tower, lemon forest walk' },
-                { time: '14:30', text: 'Arrive Hydra — car-free village, swim stop' },
+                { time: '10:30', text: 'Arrive at Agistri. Explore the island and enjoy its clear waters' },
+                { time: '12:30', text: 'Stop at Moni/Metopi for swimming and time in a secluded bay' },
+                { time: '14:30', text: 'Arrive at Aegina. Explore the island and visit its pistachio market' },
                 { time: '19:00', text: 'Return to Piraeus' },
               ].map((s, i) => (
                 <div key={i} style={{ display: 'flex', gap: '1rem', marginBottom: '1rem', alignItems: 'flex-start' }}>
@@ -511,14 +511,14 @@ const BookingPage = () => {
             {/* Bottom CTA for mobile */}
             <div className="bk-cta-banner">
               <h3>Prefer to book by phone?</h3>
-              <p>Our team is available daily 08:00 – 20:00 Athens time.</p>
+              <p>Our team is available daily from 08:00 to 20:00 Athens time.</p>
               <a className="bk-cta-tel" href="tel:+306983140472">
                 <Phone size={18} /> +30 698 3140472
               </a>
             </div>
           </div>
 
-          {/* Right – sticky booking widget */}
+          {/* Right sticky booking widget */}
           <div>
             <div className="bk-widget-card">
               <div className="bk-widget-header">
@@ -528,11 +528,11 @@ const BookingPage = () => {
                   ))}
                 </div>
                 <div className="bk-widget-title">3 Islands Full-Day Cruise</div>
-                <div className="bk-widget-price">Aegina · Poros · Hydra</div>
+                <div className="bk-widget-price">Agistri · Moni/Metopi · Aegina</div>
               </div>
 
               <div className="bk-widget-body">
-                {/* Bokun "Book now" button – the widget script activates this */}
+                {/* The widget script activates the Bokun booking button */}
                 <button
                   id={BOKUN_WIDGET_ID}
                   className="bokunButton"
@@ -540,7 +540,7 @@ const BookingPage = () => {
                   data-src={BOKUN_DATA_SRC}
                   data-testid="widget-book-button"
                 >
-                  {widgetReady ? 'Book Now — Check Availability' : 'Loading availability…'}
+                  {widgetReady ? 'Book Now | Check Availability' : 'Loading availability…'}
                 </button>
 
                 <div className="bk-widget-note">
@@ -553,7 +553,7 @@ const BookingPage = () => {
                   {[
                     { icon: <Calendar size={14} />, text: 'Instant confirmation' },
                     { icon: <Users size={14} />, text: 'Private & shared options' },
-                    { icon: <Clock size={14} />, text: 'Full day — 9 AM to 7 PM' },
+                    { icon: <Clock size={14} />, text: 'Full day, 9 AM to 7 PM' },
                     { icon: <MapPin size={14} />, text: 'Departs Marina Zeas, Piraeus' },
                   ].map((item, i) => (
                     <div key={i} style={{

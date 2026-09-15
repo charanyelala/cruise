@@ -5,7 +5,7 @@ import {
   ArrowRight, Coffee, Utensils, Fish, Car,
   Phone, Mail, CreditCard, Globe,
   Mountain, TreePine, Sun, Navigation,
-  ShoppingBag, Sparkles, Shirt,
+  ShoppingBag, Shirt,
   ChevronDown, Shield
 } from 'lucide-react';
 
@@ -722,7 +722,7 @@ const CruiseDetailsPage = () => {
               }}
             >
               <div style={styles.iconWrapper}>
-                <Sparkles size={32} color="#ffffff" />
+                <CheckCircle size={32} color="#ffffff" />
               </div>
               <h3 style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.5rem)', color: '#003d7a', marginBottom: '1.5rem' }}>What Else is Included</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -964,7 +964,6 @@ const CruiseDetailsPage = () => {
                     e.currentTarget.style.boxShadow = '0 10px 30px rgba(212, 175, 55, 0.4)';
                   }}
                 >
-                  <Sparkles size={24} />
                   Book Your Adventure
                   <ArrowRight size={24} />
                 </button>
@@ -1143,7 +1142,7 @@ const CruiseDetailsPage = () => {
           <FloatingElements count={15} color="rgba(255, 255, 255, 0.1)" />
           
           <h2 style={{ ...styles.sectionTitle, color: '#ffffff' }}>
-            Ready for an Unforgettable Adventure?
+            Ready to Cruise the Saronic Gulf?
           </h2>
           <p style={{ 
             ...styles.sectionSubtitle, 

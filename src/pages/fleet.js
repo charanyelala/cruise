@@ -607,7 +607,7 @@ const FleetPage = () => {
           
           <h2 style={styles.sectionTitle}>Meet Our Luxury Fleet</h2>
           <p style={styles.sectionSubtitle}>
-            Two magnificent motor yachts, each uniquely designed to deliver exceptional comfort and unforgettable experiences
+            Two motor yachts designed for comfortable day cruises in the Saronic Gulf
           </p>
 
           <div style={{ maxWidth: '1400px', margin: '0 auto' }}>

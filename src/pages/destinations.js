@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
   MapPin, Camera, Star, Clock, Users, Ship, Waves,
   TreePine, Mountain,
-  ArrowRight, Sparkles, Utensils, Shield, Check,
+  ArrowRight, Utensils, Shield, Check,
   X, ChevronLeft, ChevronRight, Info
 } from 'lucide-react';
 
@@ -610,17 +610,15 @@ const DestinationsPage = () => {
           <div style={styles.heroContent}>
             <p style={styles.heroSubtitle}>
               <MapPin size={20} />
-              <span>Discover Paradise</span>
-              <Sparkles size={20} />
+              <span>Explore the Saronic Gulf</span>
             </p>
             <h1 style={styles.heroTitle}>
-              Three Magical<br />
+              Three Distinct<br />
               Greek Islands
             </h1>
             <p style={styles.heroDescription}>
-              Embark on an extraordinary journey through Agistri, Moni & Aegina - three unique destinations 
-              offering the perfect blend of natural beauty, rich history, and authentic Greek island experiences 
-              in the pristine waters of the Saronic Gulf.
+              Visit Agistri, Moni and Aegina, three destinations with clear water, coastal landscapes,
+              local history and a different character at each stop.
             </p>
             
             <div style={{
@@ -714,7 +712,7 @@ const DestinationsPage = () => {
               Explore Each Destination
             </h2>
             <p style={styles.sectionSubtitle}>
-              Three distinct islands, each offering unique experiences and unforgettable memories. 
+              Three distinct islands, each offering a different view of the Saronic Gulf. 
               Discover pristine nature, ancient history, and authentic Greek culture.
             </p>
           </div>
@@ -900,7 +898,7 @@ const DestinationsPage = () => {
             color: 'rgba(255,255,255,0.8)',
             marginBottom: '4rem'
           }}>
-            Four unique experiences across three magical islands, creating memories that will last a lifetime
+            Four ways to experience the landscapes, food and history of three Saronic islands
           </p>
 
           <div style={styles.experienceGrid} className="experience-grid">
@@ -1011,7 +1009,7 @@ const DestinationsPage = () => {
               position: 'relative',
               zIndex: 2,
             }}>
-              Join us on an unforgettable journey through three magical Greek islands. 
+              Spend the day exploring three Greek island destinations in the Saronic Gulf. 
               Experience nature, history, and authentic island life all in one perfect day.
             </p>
             
